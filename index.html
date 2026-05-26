@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Phonograph — Music Rating</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Syne:wght@500;600;700&family=Funnel+Display:wght@400;500;600;700&family=Familjen+Grotesk:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Inter+Tight:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #0f0d0b;
+  --bg-2: #161310;
+  --bg-3: #1f1b17;
+  --panel: #14110e;
+  --line: #2a2520;
+  --line-2: #3a342d;
+  --ink: #ece6dd;
+  --ink-2: #b8ada0;
+  --ink-3: #7a7166;
+  --accent: #d4a574;
+  --amber: #e8a040;
+  --good: #6db26d;
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-display-tracking: -0.02em;
+  --font-display-weight: 500;
+}
+[data-display="bricolage"] {
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-display-tracking: -0.02em;
+  --font-display-weight: 500;
+}
+[data-display="syne"] {
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-display-tracking: -0.015em;
+  --font-display-weight: 600;
+}
+[data-display="funnel"] {
+  --font-display: "Funnel Display", system-ui, sans-serif;
+  --font-display-tracking: -0.02em;
+  --font-display-weight: 500;
+}
+[data-display="familjen"] {
+  --font-display: "Familjen Grotesk", system-ui, sans-serif;
+  --font-display-tracking: -0.015em;
+  --font-display-weight: 500;
+}
+[data-display="unbounded"] {
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-display-tracking: -0.04em;
+  --font-display-weight: 500;
+}
+[data-display="schibsted"] {
+  --font-display: "Schibsted Grotesk", system-ui, sans-serif;
+  --font-display-tracking: -0.02em;
+  --font-display-weight: 600;
+}
+[data-display="instrument"] {
+  --font-display: "Instrument Sans", system-ui, sans-serif;
+  --font-display-tracking: -0.02em;
+  --font-display-weight: 600;
+}
+[data-display="inter-tight"] {
+  --font-display: "Inter Tight", system-ui, sans-serif;
+  --font-display-tracking: -0.025em;
+  --font-display-weight: 600;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+body {
+  font-family: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; padding: 0; }
+
+.app {
+  display: grid;
+  grid-template-rows: 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+.app.app-artist { grid-template-columns: 320px 1fr; }
+.app.app-library { grid-template-columns: 1fr; }
+.sidebar { grid-row: 1; grid-column: 1; border-right: 1px solid var(--line); background: var(--panel); overflow-y: auto; }
+.main { grid-row: 1; grid-column: 2; overflow-y: auto; background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 500px); }
+.app.app-library .main { grid-column: 1; }
+
+.brand { display: flex; align-items: center; gap: 12px; padding: 22px 20px 16px; border-bottom: 1px solid var(--line); }
+.brand-mark { font-size: 28px; color: var(--accent); line-height: 1; }
+.brand-name { font-family: var(--font-display); font-size: 22px; font-weight: 500; letter-spacing: -0.01em; }
+.brand-sub { font-size: 11px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; }
+
+.back-link {
+  display: flex; align-items: center; gap: 8px;
+  margin: 14px 16px 0; padding: 6px 10px;
+  font-size: 12px; color: var(--ink-3);
+  border-radius: 4px; transition: all .12s;
+  text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+}
+.back-link:hover { color: var(--accent); background: var(--bg-3); }
+.back-arrow { font-size: 14px; }
+
+.sidebar-artist { padding: 14px 20px 18px; }
+.sidebar-artist-name {
+  font-family: var(--font-display); font-size: 28px; font-weight: var(--font-display-weight);
+  letter-spacing: -0.01em; line-height: 1.05; margin-bottom: 6px;
+  text-wrap: balance;
+}
+.sidebar-artist-meta { font-size: 11px; color: var(--ink-3); line-height: 1.4; }
+
+.section-label {
+  padding: 8px 20px 6px; font-size: 10px; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--ink-3); font-weight: 600;
+}
+
+.album-list { list-style: none; margin: 0; padding: 4px 8px; }
+.album-row {
+  display: flex; align-items: center; gap: 12px; width: 100%;
+  padding: 8px 10px; border-radius: 6px; text-align: left;
+  transition: background .12s;
+}
+.album-row:hover { background: var(--bg-3); }
+.album-row.active { background: var(--bg-3); }
+.album-row.active .album-row-title { color: var(--accent); }
+.album-row-text { flex: 1; min-width: 0; }
+.album-row-title { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.album-row-meta { font-size: 11px; color: var(--ink-3); display: flex; gap: 5px; }
+.dot-sep { opacity: 0.5; }
+.album-row-score {
+  font-family: var(--font-display); font-size: 16px; color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.stats-btn {
+  display: flex; justify-content: space-between; align-items: center;
+  width: calc(100% - 32px); margin: 16px; padding: 14px 16px;
+  border: 1px solid var(--line); border-radius: 6px;
+  font-size: 13px; color: var(--ink-2); transition: all .15s;
+}
+.stats-btn:hover { border-color: var(--accent); color: var(--accent); }
+.stats-btn .chev { font-size: 16px; }
+
+.album-view { min-height: 100%; }
+.artist-header { padding: 32px 48px 0; }
+.artist-header-name {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+  color: var(--ink-3); font-weight: 600;
+}
+.album-hero {
+  display: flex; gap: 32px; padding: 20px 48px 40px;
+  align-items: flex-end;
+}
+.album-hero-cover { box-shadow: 0 20px 60px rgba(0,0,0,0.5); border-radius: 4px; overflow: hidden; }
+.album-hero-text { flex: 1; min-width: 0; }
+.album-kicker {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-3); font-weight: 600; margin-bottom: 12px;
+}
+.album-title {
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight); font-size: clamp(40px, 6vw, 84px);
+  line-height: 0.95; letter-spacing: -0.02em; margin: 0 0 18px;
+  text-wrap: balance;
+}
+.album-meta { font-size: 13px; color: var(--ink-2); display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+.album-stats {
+  display: flex; gap: 32px; margin-top: 28px;
+  padding-top: 24px; border-top: 1px solid var(--line);
+}
+.stat-block { display: flex; flex-direction: column; gap: 8px; }
+.stat-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-3); font-weight: 600;
+}
+.stat-block.big .stat-value {
+  font-family: var(--font-display); font-size: 44px; line-height: 1;
+  font-weight: var(--font-display-weight); color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.stat-unit { font-size: 20px; color: var(--ink-3); margin-left: 4px; }
+.stat-block.histo { flex: 1; max-width: 280px; }
+.histo-bars { display: flex; gap: 3px; align-items: flex-end; height: 44px; }
+.histo-bar { flex: 1; background: var(--bg-3); border-radius: 1px; position: relative; overflow: hidden; }
+.histo-bar-fill {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: var(--accent); transition: height .3s;
+}
+.histo-axis { display: flex; justify-content: space-between; font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; }
+
+.tracklist { padding: 0 48px 60px; }
+.tracklist-head {
+  display: grid; grid-template-columns: 48px 1fr 280px 60px;
+  gap: 16px; align-items: center; padding: 12px 12px;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-3); font-weight: 600;
+  border-bottom: 1px solid var(--line);
+}
+.th-rating, .th-dur { text-align: right; }
+
+.track-row {
+  display: grid; grid-template-columns: 48px 1fr 280px 60px;
+  gap: 16px; align-items: center; padding: 12px;
+  border-radius: 6px; transition: background .12s;
+  font-variant-numeric: tabular-nums;
+}
+.track-row:hover { background: var(--bg-3); }
+.track-row.rated .track-idx { color: var(--accent); }
+
+.track-idx-cell {
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+}
+.track-idx { font-size: 14px; color: var(--ink-3); }
+.track-title { font-size: 14px; font-weight: 500; }
+.track-dur { text-align: right; font-size: 13px; color: var(--ink-3); }
+.track-rating { justify-self: end; }
+
+.rating {
+  display: flex; align-items: center; gap: 12px;
+  user-select: none; cursor: pointer;
+}
+.rating-num {
+  font-family: var(--font-display); font-size: 15px;
+  color: var(--accent); min-width: 30px; text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.stars-row { display: flex; gap: 1px; }
+.star-wrap { position: relative; font-size: 16px; line-height: 1; }
+.star-bg { color: var(--line-2); }
+.star-fg {
+  position: absolute; top: 0; left: 0; overflow: hidden; white-space: nowrap;
+  color: var(--accent);
+}
+.dots-row { display: flex; gap: 3px; }
+.dot {
+  display: inline-block; width: 10px; height: 10px;
+  border-radius: 50%; border: 1px solid var(--line-2);
+  background: transparent; transition: all .1s;
+}
+.rating.bar { width: 200px; }
+.bar-track {
+  flex: 1; height: 6px; background: var(--line); border-radius: 3px;
+  position: relative; overflow: hidden;
+}
+.bar-fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); transition: width .12s; }
+
+.library-main { background: var(--bg); }
+.library-view { max-width: 1280px; margin: 0 auto; padding: 56px 64px 80px; }
+
+.library-head { margin-bottom: 56px; }
+.library-head-inner {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  gap: 32px; padding-bottom: 28px; border-bottom: 1px solid var(--line);
+}
+.brand-line { display: flex; align-items: center; gap: 16px; }
+.brand-mark.big { font-size: 44px; }
+.brand-name.big { font-size: 36px; line-height: 1; }
+
+.library-stats { display: flex; gap: 32px; align-items: flex-end; }
+.lib-stat {
+  display: flex; flex-direction: column; gap: 4px;
+  text-align: right; min-width: 80px;
+}
+.lib-stat-num {
+  font-family: var(--font-display); font-size: 32px; line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.lib-stat-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-3); font-weight: 600;
+}
+.lib-stat.link { background: none; border: none; padding: 0; cursor: pointer; }
+.lib-stat.link:hover .lib-stat-num { color: var(--accent); }
+.lib-stat.link .lib-stat-num { transition: color .12s; }
+
+.library-section-head { margin-bottom: 28px; }
+.library-section-title {
+  font-family: var(--font-display); font-weight: var(--font-display-weight); font-size: 28px;
+  margin: 0 0 6px; letter-spacing: -0.01em;
+}
+.library-section-sub { font-size: 13px; color: var(--ink-3); }
+
+.artist-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.artist-card {
+  display: block; text-align: left; width: 100%;
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 8px; overflow: hidden;
+  transition: all .15s; cursor: pointer;
+  font-family: inherit;
+}
+.artist-card:hover { border-color: var(--line-2); transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.3); }
+.artist-card-art {
+  position: relative; padding: 28px 28px 20px;
+  display: flex; justify-content: center;
+  background: linear-gradient(180deg, var(--bg-2), var(--panel));
+}
+.artist-card-art-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  opacity: 0.7;
+}
+.artist-card-art > div:first-child {
+  position: relative; z-index: 1;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5); border-radius: 4px; overflow: hidden;
+}
+.artist-card-body { padding: 20px 24px 22px; border-top: 1px solid var(--line); }
+.artist-card-name {
+  font-family: var(--font-display); font-size: 28px; font-weight: var(--font-display-weight);
+  letter-spacing: -0.01em; line-height: 1.05; margin-bottom: 4px;
+  text-wrap: balance;
+}
+.artist-card-meta { font-size: 12px; color: var(--ink-3); margin-bottom: 16px; }
+.artist-card-stats {
+  display: flex; gap: 24px; padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.acs-item { display: flex; flex-direction: column; gap: 2px; }
+.acs-num {
+  font-family: var(--font-display); font-size: 22px; line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.acs-num.accent { color: var(--accent); }
+.acs-denom { font-size: 13px; color: var(--ink-3); }
+.acs-label {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--ink-3); font-weight: 600;
+}
+.artist-card-cta {
+  margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line);
+  font-size: 12px; color: var(--ink-2); display: flex;
+  justify-content: space-between; align-items: center;
+  transition: color .12s;
+}
+.artist-card:hover .artist-card-cta { color: var(--accent); }
+.artist-card-cta .arrow { transition: transform .15s; }
+.artist-card:hover .artist-card-cta .arrow { transform: translateX(4px); }
+
+.artist-card.add {
+  display: flex; align-items: center; justify-content: center;
+  background: transparent; border: 1px dashed var(--line-2);
+  min-height: 360px;
+}
+.artist-card.add:hover { border-color: var(--accent); background: var(--bg-2); }
+.add-card-inner { text-align: center; }
+.add-plus { font-family: var(--font-display); font-size: 56px; color: var(--ink-3); line-height: 1; }
+.artist-card.add:hover .add-plus { color: var(--accent); }
+.add-label { font-size: 14px; margin-top: 12px; color: var(--ink-2); }
+.add-sub {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-3); margin-top: 4px; font-weight: 600;
+}
+
+.stats-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 100; backdrop-filter: blur(4px);
+}
+.stats-panel {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 8px; width: 560px; max-height: 80vh;
+  display: flex; flex-direction: column;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+.stats-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 28px 28px 20px; border-bottom: 1px solid var(--line);
+}
+.stats-kicker {
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--ink-3); font-weight: 600; margin-bottom: 4px;
+}
+.stats-head h2 {
+  font-family: var(--font-display); font-weight: var(--font-display-weight); font-size: 32px;
+  margin: 0; letter-spacing: -0.01em;
+}
+.stats-sub { font-size: 12px; color: var(--ink-3); margin-top: 6px; }
+.close-btn {
+  font-size: 24px; color: var(--ink-3); width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+}
+.close-btn:hover { background: var(--bg-3); color: var(--ink); }
+.empty-msg { padding: 60px; text-align: center; color: var(--ink-3); }
+
+.top-list { list-style: none; margin: 0; padding: 12px 16px; overflow-y: auto; }
+.top-list li {
+  display: grid; grid-template-columns: 32px 36px 1fr auto;
+  align-items: center; gap: 14px; padding: 8px 12px;
+  border-radius: 6px;
+}
+.top-list li:hover { background: var(--bg-3); }
+.top-rank {
+  font-family: var(--font-display); font-size: 18px; color: var(--ink-3);
+  text-align: center;
+}
+.top-text { min-width: 0; }
+.top-title { font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.top-meta { font-size: 11px; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.top-score {
+  font-family: var(--font-display); font-size: 22px; color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 5px; border: 2px solid var(--panel); }
+::-webkit-scrollbar-thumb:hover { background: var(--ink-3); }
+
+/* Tweaks panel */
+.twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;
+  max-height:calc(100vh - 32px);display:flex;flex-direction:column;
+  background:rgba(250,249,247,.78);color:#29261b;
+  -webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);
+  border:.5px solid rgba(255,255,255,.6);border-radius:14px;
+  box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 12px 40px rgba(0,0,0,.18);
+  font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}
+.twk-hd{display:flex;align-items:center;justify-content:space-between;
+  padding:10px 8px 10px 14px;cursor:move;user-select:none}
+.twk-hd b{font-size:12px;font-weight:600;letter-spacing:.01em}
+.twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);
+  width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}
+.twk-x:hover{background:rgba(0,0,0,.06);color:#29261b}
+.twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;
+  overflow-y:auto;overflow-x:hidden;min-height:0;
+  scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.15) transparent}
+.twk-row{display:flex;flex-direction:column;gap:5px}
+.twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
+.twk-lbl{display:flex;justify-content:space-between;align-items:baseline;
+  color:rgba(41,38,27,.72)}
+.twk-lbl>span:first-child{font-weight:500}
+.twk-val{color:rgba(41,38,27,.5);font-variant-numeric:tabular-nums}
+.twk-sect{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(41,38,27,.45);padding:10px 0 0}
+.twk-sect:first-child{padding-top:0}
+.twk-field{appearance:none;box-sizing:border-box;width:100%;min-width:0;height:26px;padding:0 8px;
+  border:.5px solid rgba(0,0,0,.1);border-radius:7px;
+  background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}
+.twk-field:focus{border-color:rgba(0,0,0,.25);background:rgba(255,255,255,.85)}
+select.twk-field{padding-right:22px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='rgba(0,0,0,.5)' d='M0 0h10L5 6z'/></svg>");
+  background-repeat:no-repeat;background-position:right 8px center}
+.twk-seg{position:relative;display:flex;padding:2px;border-radius:8px;
+  background:rgba(0,0,0,.06);user-select:none}
+.twk-seg-thumb{position:absolute;top:2px;bottom:2px;border-radius:6px;
+  background:rgba(255,255,255,.9);box-shadow:0 1px 2px rgba(0,0,0,.12);
+  transition:left .15s cubic-bezier(.3,.7,.4,1),width .15s}
+.twk-seg.dragging .twk-seg-thumb{transition:none}
+.twk-seg button{appearance:none;position:relative;z-index:1;flex:1;border:0;
+  background:transparent;color:inherit;font:inherit;font-weight:500;min-height:22px;
+  border-radius:6px;cursor:default;padding:4px 6px;line-height:1.2;
+  overflow-wrap:anywhere}
+.twk-btn{appearance:none;height:26px;padding:0 12px;border:0;border-radius:7px;
+  background:rgba(0,0,0,.78);color:#fff;font:inherit;font-weight:500;cursor:default}
+.twk-btn:hover{background:rgba(0,0,0,.88)}
+.twk-fab{position:fixed;bottom:20px;right:20px;z-index:2147483645;width:40px;height:40px;
+  border-radius:50%;background:rgba(250,249,247,.78);color:#29261b;
+  -webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);
+  border:.5px solid rgba(255,255,255,.6);
+  box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 8px 24px rgba(0,0,0,.18);
+  display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;
+  transition:transform .15s}
+.twk-fab:hover{transform:scale(1.08)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script src="data.js"></script>
+<script>if (typeof DISCOGRAPHY === 'undefined') window.DISCOGRAPHY = {};</script>
+
+<script type="text/babel">
+const { useState, useEffect, useRef, useMemo, useCallback } = React;
+
+const fmtTime = (s) => {
+  const m = Math.floor(s / 60);
+  const r = Math.floor(s % 60);
+  return `${m}:${r.toString().padStart(2, "0")}`;
+};
+
+const STORAGE_KEY = "music-ratings-v1";
+const TWEAKS_KEY = "music-tweaks-v1";
+
+function loadRatings() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+  catch { return {}; }
+}
+function saveRatings(r) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(r));
+}
+
+const TWEAK_DEFAULTS = {
+  scale: 10,
+  ratingStyle: "stars",
+  sortBy: "order",
+  displayFont: "bricolage"
+};
+
+function loadTweaks() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(TWEAKS_KEY));
+    return stored ? { ...TWEAK_DEFAULTS, ...stored } : TWEAK_DEFAULTS;
+  } catch { return TWEAK_DEFAULTS; }
+}
+
+const kvSync = {
+  _timers: {},
+  async load(key) {
+    try {
+      const res = await fetch(`/api/kv/${key}`);
+      if (!res.ok) return null;
+      const data = await res.json();
+      return data && typeof data === 'object' && Object.keys(data).length ? data : null;
+    } catch { return null; }
+  },
+  save(key, data) {
+    clearTimeout(this._timers[key]);
+    this._timers[key] = setTimeout(() => {
+      fetch(`/api/kv/${key}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).catch(() => {});
+    }, 1000);
+  }
+};
+
+// ── AlbumCover ──────────────────────────────────────────────────────────────
+function AlbumCover({ album, size = 240, className = "" }) {
+  if (album.cover) {
+    return (
+      <div className={`album-cover ${className}`} style={{width: size, height: size, position: "relative"}}>
+        <img src={album.cover} width={size} height={size}
+          style={{display: "block", borderRadius: 2, objectFit: "cover"}}
+          alt={album.title} loading="lazy" />
+      </div>
+    );
+  }
+
+  const [a, b, c] = album.palette || ['#2a2a2a', '#888', '#d4a574'];
+  const m = album.motif || 'grid';
+
+  const renderMotif = () => {
+    switch (m) {
+      case "wave":
+        return (
+          <g>
+            <path d={`M0,${size*0.55} Q${size*0.25},${size*0.35} ${size*0.5},${size*0.55} T${size},${size*0.55} L${size},${size} L0,${size} Z`} fill={b} opacity="0.85" />
+            <path d={`M0,${size*0.7} Q${size*0.25},${size*0.5} ${size*0.5},${size*0.7} T${size},${size*0.7} L${size},${size} L0,${size} Z`} fill={c} opacity="0.6" />
+          </g>
+        );
+      case "grid":
+        return (
+          <g>
+            {Array.from({length: 8}).map((_, i) =>
+              <line key={`h${i}`} x1="0" y1={size*(i+1)/9} x2={size} y2={size*(i+1)/9} stroke={b} strokeWidth="1" opacity="0.4" />
+            )}
+            {Array.from({length: 8}).map((_, i) =>
+              <line key={`v${i}`} y1="0" x1={size*(i+1)/9} y2={size} x2={size*(i+1)/9} stroke={b} strokeWidth="1" opacity="0.4" />
+            )}
+            <rect x={size*0.35} y={size*0.35} width={size*0.3} height={size*0.3} fill={c} />
+          </g>
+        );
+      case "mountain":
+        return (
+          <g>
+            <polygon points={`0,${size} ${size*0.3},${size*0.4} ${size*0.55},${size*0.65} ${size*0.75},${size*0.3} ${size},${size*0.55} ${size},${size}`} fill={b} />
+            <polygon points={`0,${size} ${size*0.4},${size*0.7} ${size*0.7},${size*0.55} ${size},${size*0.8} ${size},${size}`} fill={c} opacity="0.8" />
+          </g>
+        );
+      case "weep":
+        return (
+          <g>
+            <circle cx={size*0.5} cy={size*0.4} r={size*0.18} fill={c} />
+            <path d={`M${size*0.5},${size*0.58} Q${size*0.42},${size*0.75} ${size*0.5},${size*0.85} Q${size*0.58},${size*0.75} ${size*0.5},${size*0.58}`} fill={b} />
+          </g>
+        );
+      case "splash":
+        return (
+          <g>
+            <circle cx={size*0.35} cy={size*0.4} r={size*0.22} fill={b} opacity="0.8" />
+            <circle cx={size*0.65} cy={size*0.6} r={size*0.28} fill={c} opacity="0.75" style={{mixBlendMode: "screen"}} />
+            <circle cx={size*0.5} cy={size*0.5} r={size*0.12} fill={b} opacity="0.9" />
+          </g>
+        );
+      case "leaves":
+        return (
+          <g>
+            {Array.from({length: 14}).map((_, i) => {
+              const angle = (i / 14) * Math.PI * 2;
+              const r = size * 0.32;
+              const cx = size/2 + Math.cos(angle) * r;
+              const cy = size/2 + Math.sin(angle) * r;
+              return <ellipse key={i} cx={cx} cy={cy} rx={size*0.06} ry={size*0.02}
+                transform={`rotate(${angle*180/Math.PI} ${cx} ${cy})`}
+                fill={b} opacity="0.7" />;
+            })}
+            <circle cx={size/2} cy={size/2} r={size*0.08} fill={c} />
+          </g>
+        );
+      case "soul":
+        return (
+          <g>
+            <ellipse cx={size*0.5} cy={size*0.5} rx={size*0.42} ry={size*0.28} fill={b} opacity="0.7" transform={`rotate(-12 ${size/2} ${size/2})`} />
+            <ellipse cx={size*0.5} cy={size*0.5} rx={size*0.32} ry={size*0.18} fill={c} opacity="0.85" transform={`rotate(-12 ${size/2} ${size/2})`} />
+          </g>
+        );
+      case "collage":
+        return (
+          <g>
+            <rect x={size*0.1} y={size*0.15} width={size*0.35} height={size*0.4} fill={b} opacity="0.9" />
+            <rect x={size*0.55} y={size*0.25} width={size*0.3} height={size*0.3} fill={c} />
+            <rect x={size*0.2} y={size*0.6} width={size*0.55} height={size*0.25} fill={b} opacity="0.5" />
+            <circle cx={size*0.7} cy={size*0.7} r={size*0.08} fill={c} />
+          </g>
+        );
+      case "band":
+        return (
+          <g>
+            <rect x="0" y={size*0.4} width={size} height={size*0.15} fill={c} />
+            <circle cx={size*0.25} cy={size*0.35} r={size*0.12} fill={b} />
+            <circle cx={size*0.5} cy={size*0.3} r={size*0.14} fill={b} />
+            <circle cx={size*0.75} cy={size*0.35} r={size*0.12} fill={b} />
+            <text x={size*0.5} y={size*0.85} textAnchor="middle" fontFamily="serif" fontSize={size*0.08} fill={b} fontWeight="bold">{"★ ★ ★"}</text>
+          </g>
+        );
+      case "blank":
+        return (
+          <g>
+            <rect x={size*0.7} y={size*0.85} width={size*0.25} height={size*0.04} fill={c} opacity="0.5" />
+          </g>
+        );
+      case "crossing":
+        return (
+          <g>
+            {Array.from({length: 5}).map((_, i) =>
+              <rect key={i} x={size*0.1 + i*size*0.16} y={size*0.55} width={size*0.1} height={size*0.3} fill={b} />
+            )}
+            <rect x="0" y={size*0.85} width={size} height={size*0.04} fill={c} opacity="0.6" />
+          </g>
+        );
+      case "windows":
+        return (
+          <g>
+            {[0,1,2,3].map(i =>
+              [0,1,2,3].map(j =>
+                <rect key={`${i}-${j}`} x={size*0.15 + i*size*0.18} y={size*0.15 + j*size*0.18}
+                  width={size*0.12} height={size*0.12} fill={(i+j)%2 ? b : c} opacity={0.5 + ((i+j)%3)*0.15} />
+              )
+            )}
+          </g>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className={`album-cover ${className}`} style={{width: size, height: size, position: "relative"}}>
+      <svg viewBox={`0 0 ${size} ${size}`} width={size} height={size}
+        style={{display: "block", background: a, borderRadius: 2}}>
+        {renderMotif()}
+      </svg>
+    </div>
+  );
+}
+
+// ── Rating control ──────────────────────────────────────────────────────────
+function RatingControl({ value, onChange, scale, style }) {
+  const [hover, setHover] = useState(null);
+  const ref = useRef(null);
+
+  const handleMove = (e) => {
+    const rect = ref.current.getBoundingClientRect();
+    const x = Math.max(0, Math.min(rect.width, e.clientX - rect.left));
+    const frac = x / rect.width;
+    const units = scale * 2;
+    setHover(Math.round(frac * units) / units);
+  };
+  const handleLeave = () => setHover(null);
+  const handleClick = () => {
+    if (hover != null) onChange(hover);
+  };
+
+  const display = hover != null ? hover : value;
+  const showLabel = hover != null || value > 0;
+
+  if (style === "dots") {
+    const slots = 10;
+    const filled = display * slots;
+    return (
+      <div className="rating dots" ref={ref}
+        onMouseMove={handleMove} onMouseLeave={handleLeave} onClick={handleClick}>
+        <div className="dots-row">
+          {Array.from({length: slots}).map((_, i) => {
+            const fill = Math.max(0, Math.min(1, filled - i));
+            return (
+              <span key={i} className="dot" style={{
+                background: fill >= 0.5 ? "var(--accent)" : "transparent",
+                borderColor: fill > 0 ? "var(--accent)" : "var(--line)",
+                opacity: fill > 0 ? 1 : 0.6
+              }} />
+            );
+          })}
+        </div>
+        <span className="rating-num">{showLabel ? (display * scale).toFixed(scale > 10 ? 0 : 1) : "—"}</span>
+      </div>
+    );
+  }
+
+  if (style === "bar") {
+    return (
+      <div className="rating bar" ref={ref}
+        onMouseMove={handleMove} onMouseLeave={handleLeave} onClick={handleClick}>
+        <div className="bar-track">
+          <div className="bar-fill" style={{width: `${display * 100}%`}} />
+        </div>
+        <span className="rating-num">{showLabel ? (display * scale).toFixed(scale > 10 ? 0 : 1) : "—"}</span>
+      </div>
+    );
+  }
+
+  const starCount = scale <= 5 ? 5 : 10;
+  const filled = display * starCount;
+  return (
+    <div className="rating stars" ref={ref}
+      onMouseMove={handleMove} onMouseLeave={handleLeave} onClick={handleClick}>
+      <div className="stars-row">
+        {Array.from({length: starCount}).map((_, i) => {
+          const fill = Math.max(0, Math.min(1, filled - i));
+          return (
+            <span key={i} className="star-wrap">
+              <span className="star-bg">{"★"}</span>
+              <span className="star-fg" style={{width: `${fill * 100}%`}}>{"★"}</span>
+            </span>
+          );
+        })}
+      </div>
+      <span className="rating-num">{showLabel ? (display * scale).toFixed(scale > 10 ? 0 : 1) : "—"}</span>
+    </div>
+  );
+}
+
+// ── Helpers ──────────────────────────────────────────────────────────────────
+function albumScoreOf(album, ratings) {
+  const r = album.tracks.map((_, i) => ratings[`${album.id}-${i}`]).filter(v => v != null);
+  if (!r.length) return null;
+  return r.reduce((a,b) => a+b, 0) / r.length;
+}
+
+// ── Sidebar ─────────────────────────────────────────────────────────────────
+function Sidebar({ artistKey, albumId, setAlbumId, ratings, onShowStats, onBackToLibrary }) {
+  const artist = DISCOGRAPHY[artistKey];
+  return (
+    <aside className="sidebar">
+      <div className="brand">
+        <div className="brand-mark">{"◐"}</div>
+        <div>
+          <div className="brand-name">Phonograph</div>
+          <div className="brand-sub">Personal rating ledger</div>
+        </div>
+      </div>
+
+      <button className="back-link" onClick={onBackToLibrary}>
+        <span className="back-arrow">{"←"}</span>
+        <span>Library</span>
+      </button>
+
+      <div className="sidebar-artist">
+        <div className="sidebar-artist-name">{artist.name}</div>
+        <div className="sidebar-artist-meta">{artist.bio}</div>
+      </div>
+
+      <div className="section-label">Discography · {artist.albums.length}</div>
+      <ul className="album-list">
+        {artist.albums.map(album => {
+          const score = albumScoreOf(album, ratings);
+          return (
+            <li key={album.id}>
+              <button className={`album-row ${album.id === albumId ? "active" : ""}`}
+                onClick={() => setAlbumId(album.id)}>
+                <AlbumCover album={album} size={44} />
+                <div className="album-row-text">
+                  <div className="album-row-title">{album.title}</div>
+                  <div className="album-row-meta">
+                    <span>{album.year}</span>
+                    <span className="dot-sep">{"·"}</span>
+                    <span>{album.tracks.length} tracks</span>
+                  </div>
+                </div>
+                {score != null && (
+                  <div className="album-row-score">{(score * 10).toFixed(1)}</div>
+                )}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+
+      <button className="stats-btn" onClick={onShowStats}>
+        <span>Your top tracks</span>
+        <span className="chev">{"→"}</span>
+      </button>
+    </aside>
+  );
+}
+
+// ── Tracklist ───────────────────────────────────────────────────────────────
+function Tracklist({ album, ratings, setRating, scale, ratingStyle, sortBy }) {
+  const tracks = album.tracks.map(([title, dur], i) => ({
+    title, dur, idx: i, key: `${album.id}-${i}`,
+    rating: ratings[`${album.id}-${i}`]
+  }));
+
+  const sorted = useMemo(() => {
+    if (sortBy === "rating") {
+      return [...tracks].sort((a, b) => (b.rating ?? -1) - (a.rating ?? -1));
+    }
+    if (sortBy === "duration") {
+      return [...tracks].sort((a, b) => b.dur - a.dur);
+    }
+    return tracks;
+  }, [tracks, sortBy]);
+
+  return (
+    <div className="tracklist">
+      <div className="tracklist-head">
+        <span className="th-idx">#</span>
+        <span className="th-title">Title</span>
+        <span className="th-rating">Rating</span>
+        <span className="th-dur">Length</span>
+      </div>
+      {sorted.map((t) => {
+        const rated = t.rating != null;
+        return (
+          <div key={t.key} className={`track-row ${rated ? "rated" : ""}`}>
+            <div className="track-idx-cell">
+              <span className="track-idx">{t.idx + 1}</span>
+            </div>
+            <div className="track-title">{t.title}</div>
+            <div className="track-rating">
+              <RatingControl
+                value={t.rating || 0}
+                onChange={(v) => setRating(t.key, v)}
+                scale={scale}
+                style={ratingStyle}
+              />
+            </div>
+            <div className="track-dur">{fmtTime(t.dur)}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ── Album view ──────────────────────────────────────────────────────────────
+function AlbumView({ album, ratings, setRating, scale, ratingStyle, sortBy, artistName }) {
+  const rated = album.tracks.map((_, i) => ratings[`${album.id}-${i}`]).filter(v => v != null);
+  const avg = rated.length ? rated.reduce((a,b) => a+b, 0) / rated.length : null;
+  const totalDur = album.tracks.reduce((s, [,d]) => s + d, 0);
+
+  const histogram = useMemo(() => {
+    const bins = Array(10).fill(0);
+    rated.forEach(r => {
+      const b = Math.max(0, Math.min(9, Math.floor(r * 10)));
+      bins[b]++;
+    });
+    return bins;
+  }, [rated]);
+  const maxBin = Math.max(...histogram, 1);
+
+  return (
+    <div className="album-view" style={{"--accent": album.palette[2] || album.palette[1]}}>
+      <div className="artist-header">
+        <div className="artist-header-name">{artistName}</div>
+      </div>
+      <div className="album-hero" style={{
+        background: `linear-gradient(180deg, ${album.palette[0]}40 0%, transparent 80%)`
+      }}>
+        <AlbumCover album={album} size={220} className="album-hero-cover" />
+        <div className="album-hero-text">
+          <div className="album-kicker">Studio album · {album.year}</div>
+          <h1 className="album-title">{album.title}</h1>
+          <div className="album-meta">
+            <span>{album.tracks.length} songs</span>
+            <span className="dot-sep">{"·"}</span>
+            <span>{fmtTime(totalDur)}</span>
+            <span className="dot-sep">{"·"}</span>
+            <span>{rated.length} of {album.tracks.length} rated</span>
+          </div>
+
+          <div className="album-stats">
+            <div className="stat-block big">
+              <div className="stat-label">Your album score</div>
+              <div className="stat-value">
+                {avg != null ? (avg * scale).toFixed(scale > 10 ? 0 : 1) : "—"}
+                <span className="stat-unit">{avg != null ? `/${scale}` : ""}</span>
+              </div>
+            </div>
+            <div className="stat-block histo">
+              <div className="stat-label">Distribution</div>
+              <div className="histo-bars">
+                {histogram.map((n, i) => (
+                  <div key={i} className="histo-bar" title={`${(i+1)} - ${(i+1)*0.1*scale}`}>
+                    <div className="histo-bar-fill" style={{height: `${(n/maxBin)*100}%`}} />
+                  </div>
+                ))}
+              </div>
+              <div className="histo-axis">
+                <span>low</span><span>high</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <Tracklist
+        album={album}
+        ratings={ratings}
+        setRating={setRating}
+        scale={scale}
+        ratingStyle={ratingStyle}
+        sortBy={sortBy}
+      />
+    </div>
+  );
+}
+
+// ── Stats panel ─────────────────────────────────────────────────────────────
+function StatsPanel({ ratings, onClose, scale }) {
+  const allTracks = [];
+  Object.values(DISCOGRAPHY).forEach(artist => {
+    artist.albums.forEach(album => {
+      album.tracks.forEach(([title, dur], i) => {
+        const key = `${album.id}-${i}`;
+        if (ratings[key] != null) {
+          allTracks.push({
+            title, dur, artist: artist.name, album: album.title,
+            albumObj: album, rating: ratings[key], year: album.year
+          });
+        }
+      });
+    });
+  });
+  allTracks.sort((a, b) => b.rating - a.rating);
+  const top = allTracks.slice(0, 30);
+
+  return (
+    <div className="stats-overlay" onClick={onClose}>
+      <div className="stats-panel" onClick={e => e.stopPropagation()}>
+        <div className="stats-head">
+          <div>
+            <div className="stats-kicker">Your ledger</div>
+            <h2>Top rated tracks</h2>
+            <div className="stats-sub">{allTracks.length} tracks rated across {new Set(allTracks.map(t=>t.album)).size} albums</div>
+          </div>
+          <button className="close-btn" onClick={onClose}>{"×"}</button>
+        </div>
+        {top.length === 0 ? (
+          <div className="empty-msg">Rate some tracks to see them here.</div>
+        ) : (
+          <ol className="top-list">
+            {top.map((t, i) => (
+              <li key={i}>
+                <span className="top-rank">{i+1}</span>
+                <AlbumCover album={t.albumObj} size={36} />
+                <div className="top-text">
+                  <div className="top-title">{t.title}</div>
+                  <div className="top-meta">{t.artist} · {t.album} · {t.year}</div>
+                </div>
+                <div className="top-score">{(t.rating * scale).toFixed(scale > 10 ? 0 : 1)}</div>
+              </li>
+            ))}
+          </ol>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ── Library view ────────────────────────────────────────────────────────────
+function LibraryView({ ratings, onPickArtist, onShowStats, scale }) {
+  const artistEntries = Object.entries(DISCOGRAPHY).map(([k, artist]) => {
+    let ratedCount = 0, sum = 0;
+    const albumAverages = [];
+    let topAlbum = null;
+    artist.albums.forEach(album => {
+      const score = albumScoreOf(album, ratings);
+      if (score != null) {
+        albumAverages.push({ album, score });
+        if (!topAlbum || score > topAlbum.score) topAlbum = { album, score };
+      }
+      album.tracks.forEach((_, i) => {
+        const v = ratings[`${album.id}-${i}`];
+        if (v != null) { ratedCount++; sum += v; }
+      });
+    });
+    const trackAvg = ratedCount ? sum / ratedCount : null;
+    return { key: k, artist, ratedCount, trackAvg, topAlbum, albumAverages };
+  });
+
+  const totalRated = artistEntries.reduce((s, a) => s + a.ratedCount, 0);
+  const totalArtists = artistEntries.length;
+
+  return (
+    <div className="library-view">
+      <header className="library-head">
+        <div className="library-head-inner">
+          <div className="brand-line">
+            <div className="brand-mark big">{"◐"}</div>
+            <div>
+              <div className="brand-name big">Phonograph</div>
+              <div className="brand-sub">Personal rating ledger</div>
+            </div>
+          </div>
+          <div className="library-stats">
+            <div className="lib-stat">
+              <div className="lib-stat-num">{totalArtists}</div>
+              <div className="lib-stat-label">Artists</div>
+            </div>
+            <div className="lib-stat">
+              <div className="lib-stat-num">{totalRated}</div>
+              <div className="lib-stat-label">Tracks rated</div>
+            </div>
+            <button className="lib-stat link" onClick={onShowStats}>
+              <div className="lib-stat-num">{"→"}</div>
+              <div className="lib-stat-label">Top tracks</div>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <section className="library-section">
+        <div className="library-section-head">
+          <h2 className="library-section-title">Your artists</h2>
+          <div className="library-section-sub">Pick an artist to browse their discography and rate songs.</div>
+        </div>
+
+        <div className="artist-grid">
+          {artistEntries.map(({ key, artist, ratedCount, trackAvg, topAlbum }) => {
+            const totalTracks = artist.albums.reduce((s, a) => s + a.tracks.length, 0);
+            const pickAlbum = topAlbum?.album || artist.albums[Math.floor(artist.albums.length / 2)];
+            return (
+              <button key={key} className="artist-card" onClick={() => onPickArtist(key)}>
+                <div className="artist-card-art">
+                  <AlbumCover album={pickAlbum} size={200} />
+                  <div className="artist-card-art-glow" style={{background: `radial-gradient(circle at 30% 30%, ${artist.accent}40, transparent 70%)`}} />
+                </div>
+                <div className="artist-card-body">
+                  <div className="artist-card-name">{artist.name}</div>
+                  <div className="artist-card-meta">
+                    {artist.albums.length} albums · {totalTracks} tracks
+                  </div>
+                  <div className="artist-card-stats">
+                    <div className="acs-item">
+                      <div className="acs-num">{ratedCount}<span className="acs-denom">/{totalTracks}</span></div>
+                      <div className="acs-label">Rated</div>
+                    </div>
+                    <div className="acs-item">
+                      <div className="acs-num accent">
+                        {trackAvg != null ? (trackAvg * scale).toFixed(scale > 10 ? 0 : 1) : "—"}
+                      </div>
+                      <div className="acs-label">Avg score</div>
+                    </div>
+                  </div>
+                  <div className="artist-card-cta">
+                    Open discography <span className="arrow">{"→"}</span>
+                  </div>
+                </div>
+              </button>
+            );
+          })}
+
+          <div className="artist-card add" role="button" tabIndex={0}
+            onClick={() => alert("Run: node fetch-artist.js \"Artist Name\" to add an artist.")}>
+            <div className="add-card-inner">
+              <div className="add-plus">+</div>
+              <div className="add-label">Add artist</div>
+              <div className="add-sub">via CLI script</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+// ── Tweaks Panel (standalone) ───────────────────────────────────────────────
+function TweakSection({ label }) {
+  return <div className="twk-sect">{label}</div>;
+}
+
+function TweakRow({ label, value, children }) {
+  return (
+    <div className="twk-row">
+      <div className="twk-lbl">
+        <span>{label}</span>
+        {value != null && <span className="twk-val">{value}</span>}
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function TweakRadio({ label, value, options, onChange }) {
+  const trackRef = useRef(null);
+  const [dragging, setDragging] = useState(false);
+  const valueRef = useRef(value);
+  valueRef.current = value;
+
+  const opts = options.map((o) => (typeof o === 'object' ? o : { value: o, label: o }));
+  const idx = Math.max(0, opts.findIndex((o) => o.value === value));
+  const n = opts.length;
+
+  const segAt = (clientX) => {
+    const r = trackRef.current.getBoundingClientRect();
+    const inner = r.width - 4;
+    const i = Math.floor(((clientX - r.left - 2) / inner) * n);
+    return opts[Math.max(0, Math.min(n - 1, i))].value;
+  };
+
+  const onPointerDown = (e) => {
+    setDragging(true);
+    const v0 = segAt(e.clientX);
+    if (v0 !== valueRef.current) onChange(v0);
+    const move = (ev) => {
+      if (!trackRef.current) return;
+      const v = segAt(ev.clientX);
+      if (v !== valueRef.current) onChange(v);
+    };
+    const up = () => {
+      setDragging(false);
+      window.removeEventListener('pointermove', move);
+      window.removeEventListener('pointerup', up);
+    };
+    window.addEventListener('pointermove', move);
+    window.addEventListener('pointerup', up);
+  };
+
+  return (
+    <TweakRow label={label}>
+      <div ref={trackRef} role="radiogroup" onPointerDown={onPointerDown}
+           className={dragging ? 'twk-seg dragging' : 'twk-seg'}>
+        <div className="twk-seg-thumb"
+             style={{ left: `calc(2px + ${idx} * (100% - 4px) / ${n})`,
+                      width: `calc((100% - 4px) / ${n})` }} />
+        {opts.map((o) => (
+          <button key={o.value} type="button" role="radio" aria-checked={o.value === value}>
+            {o.label}
+          </button>
+        ))}
+      </div>
+    </TweakRow>
+  );
+}
+
+function TweakSelect({ label, value, options, onChange }) {
+  return (
+    <TweakRow label={label}>
+      <select className="twk-field" value={value} onChange={(e) => onChange(e.target.value)}>
+        {options.map((o) => {
+          const v = typeof o === 'object' ? o.value : o;
+          const l = typeof o === 'object' ? o.label : o;
+          return <option key={v} value={v}>{l}</option>;
+        })}
+      </select>
+    </TweakRow>
+  );
+}
+
+function TweakButton({ label, onClick }) {
+  return (
+    <button type="button" className="twk-btn" onClick={onClick}>{label}</button>
+  );
+}
+
+function TweaksPanel({ tweaks, setTweak, onResetRatings }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      {!open && (
+        <button className="twk-fab" onClick={() => setOpen(true)} title="Tweaks">
+          {"⚙"}
+        </button>
+      )}
+      {open && (
+        <div className="twk-panel">
+          <div className="twk-hd">
+            <b>Tweaks</b>
+            <button className="twk-x" onClick={() => setOpen(false)}>{"✕"}</button>
+          </div>
+          <div className="twk-body">
+            <TweakSection label="Rating" />
+            <TweakRadio label="Scale" value={tweaks.scale}
+              onChange={v => setTweak('scale', v)}
+              options={[{value: 5, label: "0–5"}, {value: 10, label: "0–10"}, {value: 100, label: "0–100"}]} />
+            <TweakRadio label="UI" value={tweaks.ratingStyle}
+              onChange={v => setTweak('ratingStyle', v)}
+              options={[{value: "stars", label: "Stars"}, {value: "dots", label: "Dots"}, {value: "bar", label: "Bar"}]} />
+            <TweakSection label="Tracklist" />
+            <TweakRadio label="Sort by" value={tweaks.sortBy}
+              onChange={v => setTweak('sortBy', v)}
+              options={[{value: "order", label: "Order"}, {value: "rating", label: "Rating"}, {value: "duration", label: "Length"}]} />
+            <TweakSection label="Typography" />
+            <TweakSelect label="Display font" value={tweaks.displayFont}
+              onChange={v => setTweak('displayFont', v)}
+              options={[
+                {value: "bricolage", label: "Bricolage Grotesque"},
+                {value: "syne", label: "Syne"},
+                {value: "funnel", label: "Funnel Display"},
+                {value: "familjen", label: "Familjen Grotesk"},
+                {value: "schibsted", label: "Schibsted Grotesk"},
+                {value: "unbounded", label: "Unbounded"},
+                {value: "instrument", label: "Instrument Sans"},
+                {value: "inter-tight", label: "Inter Tight"}
+              ]} />
+            <TweakSection label="Data" />
+            <TweakButton label="Reset all ratings" onClick={onResetRatings} />
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
+
+// ── App ─────────────────────────────────────────────────────────────────────
+function App() {
+  const [tweaks, setTweaks] = useState(loadTweaks);
+  const setTweak = useCallback((key, val) => {
+    setTweaks(prev => {
+      const next = { ...prev, [key]: val };
+      localStorage.setItem(TWEAKS_KEY, JSON.stringify(next));
+      kvSync.save('tweaks', next);
+      return next;
+    });
+  }, []);
+
+  const [view, setView] = useState(() => {
+    try { return localStorage.getItem("view-v1") || "library"; } catch { return "library"; }
+  });
+  const [artistKey, setArtistKey] = useState("radiohead");
+  const [albumId, setAlbumId] = useState("rh-okc");
+
+  useEffect(() => { localStorage.setItem("view-v1", view); }, [view]);
+  useEffect(() => { document.documentElement.setAttribute("data-display", tweaks.displayFont); }, [tweaks.displayFont]);
+
+  const [ratings, setRatings] = useState(loadRatings);
+  const [showStats, setShowStats] = useState(false);
+
+  useEffect(() => {
+    kvSync.load('ratings').then(remote => {
+      if (remote) {
+        setRatings(prev => {
+          const merged = { ...prev, ...remote };
+          saveRatings(merged);
+          return merged;
+        });
+      }
+    });
+    kvSync.load('tweaks').then(remote => {
+      if (remote) {
+        setTweaks(prev => {
+          const merged = { ...TWEAK_DEFAULTS, ...prev, ...remote };
+          localStorage.setItem(TWEAKS_KEY, JSON.stringify(merged));
+          return merged;
+        });
+      }
+    });
+  }, []);
+
+  const setRating = (key, v) => {
+    setRatings(r => {
+      const next = { ...r };
+      if (v === r[key]) delete next[key];
+      else next[key] = v;
+      saveRatings(next);
+      kvSync.save('ratings', next);
+      return next;
+    });
+  };
+
+  const artist = DISCOGRAPHY[artistKey];
+  const album = artist.albums.find(a => a.id === albumId) || artist.albums[0];
+
+  useEffect(() => {
+    if (!artist.albums.find(a => a.id === albumId)) {
+      setAlbumId(artist.albums[0].id);
+    }
+  }, [artistKey]);
+
+  return (
+    <div className={`app ${view === "library" ? "app-library" : "app-artist"}`}>
+      {view === "artist" && (
+        <>
+          <Sidebar
+            artistKey={artistKey}
+            albumId={album.id}
+            setAlbumId={setAlbumId}
+            ratings={ratings}
+            onShowStats={() => setShowStats(true)}
+            onBackToLibrary={() => setView("library")}
+          />
+          <main className="main">
+            <AlbumView
+              album={album}
+              ratings={ratings}
+              setRating={setRating}
+              scale={tweaks.scale}
+              ratingStyle={tweaks.ratingStyle}
+              sortBy={tweaks.sortBy}
+              artistName={artist.name}
+            />
+          </main>
+        </>
+      )}
+      {view === "library" && (
+        <main className="main library-main">
+          <LibraryView
+            ratings={ratings}
+            onPickArtist={(k) => { setArtistKey(k); setView("artist"); }}
+            onShowStats={() => setShowStats(true)}
+            scale={tweaks.scale}
+          />
+        </main>
+      )}
+      {showStats && <StatsPanel ratings={ratings} scale={tweaks.scale} onClose={() => setShowStats(false)} />}
+
+      <TweaksPanel
+        tweaks={tweaks}
+        setTweak={setTweak}
+        onResetRatings={() => {
+          if (confirm("Clear all your ratings?")) {
+            setRatings({}); saveRatings({}); kvSync.save('ratings', {});
+          }
+        }}
+      />
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

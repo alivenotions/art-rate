@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "phonograph",
+  "scripts": {
+    "dev": "vercel dev",
+    "fetch": "node fetch-artist.js"
+  },
+  "dependencies": {
+    "@upstash/redis": "^1.38.0"
+  }
+}
