@@ -3852,69 +3852,6 @@
             357
           ]
         ]
-      },
-      {
-        "id": "thom-yorke-tall-tales",
-        "mbid": "80e3d46d-8d77-409c-947d-efe50f02806f",
-        "title": "Tall Tales",
-        "year": 2025,
-        "cover": "covers/thom-yorke-tall-tales.jpg",
-        "palette": [
-          "#b8332a",
-          "#1a1a1a",
-          "#e8b89d"
-        ],
-        "motif": "weep",
-        "tracks": [
-          [
-            "A Fake in a Faker’s World",
-            498
-          ],
-          [
-            "Ice Shelf",
-            287
-          ],
-          [
-            "Bugging Out Again",
-            285
-          ],
-          [
-            "Back in the Game",
-            281
-          ],
-          [
-            "The White Cliffs",
-            499
-          ],
-          [
-            "The Spirit",
-            296
-          ],
-          [
-            "Gangsters",
-            209
-          ],
-          [
-            "This Conversation Is Missing Your Voice",
-            234
-          ],
-          [
-            "Tall Tales",
-            310
-          ],
-          [
-            "Happy Days",
-            261
-          ],
-          [
-            "The Men Who Dance in Stag’s Heads",
-            222
-          ],
-          [
-            "Wandering Genie",
-            331
-          ]
-        ]
       }
     ]
   }
