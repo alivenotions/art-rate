@@ -1840,5 +1840,2084 @@ window.DISCOGRAPHY = {
         ]
       }
     ]
+  },
+  "nirvana": {
+    "name": "Nirvana",
+    "mbid": "5b11f4ce-a62d-471e-81fc-a69a8278c7da",
+    "bio": "Group from Aberdeen. 1987–1994.",
+    "accent": "#6db26d",
+    "albums": [
+      {
+        "id": "nirvana-bleach",
+        "mbid": "f1afec0b-26dd-3db5-9aa1-c91229a74a24",
+        "title": "Bleach",
+        "year": 1989,
+        "cover": null,
+        "palette": [
+          "#1a3a5c",
+          "#7ba7c9",
+          "#e8d5b7"
+        ],
+        "motif": "wave",
+        "tracks": [
+          [
+            "Blew",
+            176
+          ],
+          [
+            "Floyd the Barber",
+            140
+          ],
+          [
+            "About a Girl",
+            168
+          ],
+          [
+            "School",
+            163
+          ],
+          [
+            "Big Cheese",
+            222
+          ],
+          [
+            "Paper Cuts",
+            248
+          ],
+          [
+            "Negative Creep",
+            175
+          ],
+          [
+            "Scoff",
+            250
+          ],
+          [
+            "Swap Meet",
+            183
+          ],
+          [
+            "Mr. Moustache",
+            203
+          ],
+          [
+            "Sifting",
+            324
+          ]
+        ]
+      },
+      {
+        "id": "nirvana-nevermind",
+        "mbid": "1b022e01-4da6-387b-8658-8678046e4cef",
+        "title": "Nevermind",
+        "year": 1991,
+        "cover": "covers/nirvana-nevermind.jpg",
+        "palette": [
+          "#2a2a2a",
+          "#c8c8c8",
+          "#d4a574"
+        ],
+        "motif": "grid",
+        "tracks": [
+          [
+            "Smells Like Teen Spirit",
+            301
+          ],
+          [
+            "In Bloom",
+            255
+          ],
+          [
+            "Come as You Are",
+            219
+          ],
+          [
+            "Breed",
+            184
+          ],
+          [
+            "Lithium",
+            257
+          ],
+          [
+            "Polly",
+            177
+          ],
+          [
+            "Territorial Pissings",
+            143
+          ],
+          [
+            "Drain You",
+            224
+          ],
+          [
+            "Lounge Act",
+            157
+          ],
+          [
+            "Stay Away",
+            212
+          ],
+          [
+            "On a Plain",
+            196
+          ],
+          [
+            "Something in the Way",
+            233
+          ]
+        ]
+      },
+      {
+        "id": "nirvana-in-utero",
+        "mbid": "2a0981fb-9593-3019-864b-ce934d97a16e",
+        "title": "In Utero",
+        "year": 1993,
+        "cover": "covers/nirvana-in-utero.jpg",
+        "palette": [
+          "#8a2c1f",
+          "#f0e8d8",
+          "#c4b89d"
+        ],
+        "motif": "mountain",
+        "tracks": [
+          [
+            "Serve the Servants",
+            217
+          ],
+          [
+            "Scentless Apprentice",
+            228
+          ],
+          [
+            "Heart‐Shaped Box",
+            281
+          ],
+          [
+            "Rape Me",
+            170
+          ],
+          [
+            "Frances Farmer Will Have Her Revenge on Seattle",
+            250
+          ],
+          [
+            "Dumb",
+            152
+          ],
+          [
+            "Very Ape",
+            116
+          ],
+          [
+            "Milk It",
+            235
+          ],
+          [
+            "Pennyroyal Tea",
+            217
+          ],
+          [
+            "Radio Friendly Unit Shifter",
+            291
+          ],
+          [
+            "Tourette’s",
+            95
+          ],
+          [
+            "All Apologies",
+            231
+          ]
+        ]
+      }
+    ]
+  },
+  "metallica": {
+    "name": "Metallica",
+    "mbid": "65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab",
+    "bio": "Group from Los Angeles. Formed 1981.",
+    "accent": "#7a5ae0",
+    "albums": [
+      {
+        "id": "metallica-kill-em-all",
+        "mbid": "f44f4f73-a714-31a1-a4b8-bfcaaf311f50",
+        "title": "Kill ’Em All",
+        "year": 1983,
+        "cover": "covers/metallica-kill-em-all.jpg",
+        "palette": [
+          "#1a3a5c",
+          "#7ba7c9",
+          "#e8d5b7"
+        ],
+        "motif": "wave",
+        "tracks": [
+          [
+            "Hit the Lights",
+            257
+          ],
+          [
+            "The Four Horsemen",
+            428
+          ],
+          [
+            "Motorbreath",
+            183
+          ],
+          [
+            "Jump in the Fire",
+            290
+          ],
+          [
+            "(Anesthesia) – Pulling Teeth",
+            207
+          ],
+          [
+            "Whiplash",
+            246
+          ],
+          [
+            "Phantom Lord",
+            292
+          ],
+          [
+            "No Remorse",
+            384
+          ],
+          [
+            "Seek & Destroy",
+            410
+          ],
+          [
+            "Metal Militia",
+            366
+          ]
+        ]
+      },
+      {
+        "id": "metallica-ride-the-lightning",
+        "mbid": "0da580f2-6768-498f-af9d-2becaddf15e0",
+        "title": "Ride the Lightning",
+        "year": 1984,
+        "cover": "covers/metallica-ride-the-lightning.jpg",
+        "palette": [
+          "#2a2a2a",
+          "#c8c8c8",
+          "#d4a574"
+        ],
+        "motif": "grid",
+        "tracks": [
+          [
+            "Fight Fire With Fire",
+            285
+          ],
+          [
+            "Ride the Lightning",
+            398
+          ],
+          [
+            "For Whom the Bell Tolls",
+            312
+          ],
+          [
+            "Fade to Black",
+            415
+          ],
+          [
+            "Trapped Under Ice",
+            245
+          ],
+          [
+            "Escape",
+            264
+          ],
+          [
+            "Creeping Death",
+            397
+          ],
+          [
+            "The Call of Ktulu",
+            535
+          ]
+        ]
+      },
+      {
+        "id": "metallica-master-of-puppets",
+        "mbid": "3d00fb45-f8ab-3436-a8e1-b4bfc4d66913",
+        "title": "Master of Puppets",
+        "year": 1986,
+        "cover": "covers/metallica-master-of-puppets.jpg",
+        "palette": [
+          "#8a2c1f",
+          "#f0e8d8",
+          "#c4b89d"
+        ],
+        "motif": "mountain",
+        "tracks": [
+          [
+            "Battery",
+            312
+          ],
+          [
+            "Master of Puppets",
+            518
+          ],
+          [
+            "The Thing That Should Not Be",
+            399
+          ],
+          [
+            "Welcome Home (Sanitarium)",
+            388
+          ],
+          [
+            "Disposable Heroes",
+            501
+          ],
+          [
+            "Leper Messiah",
+            343
+          ],
+          [
+            "Orion",
+            508
+          ],
+          [
+            "Damage, Inc.",
+            331
+          ]
+        ]
+      },
+      {
+        "id": "metallica-and-justice-for-all",
+        "mbid": "67553e23-8dad-3792-b6f2-8fedd5650ff3",
+        "title": "…And Justice for All",
+        "year": 1988,
+        "cover": "covers/metallica-and-justice-for-all.jpg",
+        "palette": [
+          "#b8332a",
+          "#1a1a1a",
+          "#e8b89d"
+        ],
+        "motif": "weep",
+        "tracks": [
+          [
+            "Blackened",
+            400
+          ],
+          [
+            "…And Justice for All",
+            584
+          ],
+          [
+            "Eye of the Beholder",
+            385
+          ],
+          [
+            "One",
+            444
+          ],
+          [
+            "The Shortest Straw",
+            395
+          ],
+          [
+            "Harvester of Sorrow",
+            342
+          ],
+          [
+            "The Frayed Ends of Sanity",
+            460
+          ],
+          [
+            "To Live Is to Die",
+            588
+          ],
+          [
+            "Dyers Eve",
+            312
+          ]
+        ]
+      },
+      {
+        "id": "metallica-metallica",
+        "mbid": "e8f70201-8899-3f0c-9e07-5d6495bc8046",
+        "title": "Metallica",
+        "year": 1991,
+        "cover": "covers/metallica-metallica.jpg",
+        "palette": [
+          "#1a0f3a",
+          "#e8a020",
+          "#c0386b"
+        ],
+        "motif": "splash",
+        "tracks": [
+          [
+            "Enter Sandman",
+            332
+          ],
+          [
+            "Sad but True",
+            325
+          ],
+          [
+            "Holier Than Thou",
+            228
+          ],
+          [
+            "The Unforgiven",
+            387
+          ],
+          [
+            "Wherever I May Roam",
+            404
+          ],
+          [
+            "Don’t Tread on Me",
+            240
+          ],
+          [
+            "Through the Never",
+            244
+          ],
+          [
+            "Nothing Else Matters",
+            389
+          ],
+          [
+            "Of Wolf and Man",
+            257
+          ],
+          [
+            "The God That Failed",
+            309
+          ],
+          [
+            "My Friend of Misery",
+            410
+          ],
+          [
+            "The Struggle Within",
+            234
+          ]
+        ]
+      }
+    ]
+  },
+  "porcupine-tree": {
+    "name": "Porcupine Tree",
+    "mbid": "169c4c28-858e-497b-81a4-8bc15e0026ea",
+    "bio": "Group from Hemel Hempstead. Formed 1987.",
+    "accent": "#c0386b",
+    "albums": [
+      {
+        "id": "porcupine-tree-nostalgia-factory",
+        "mbid": "e78ebb28-e85f-3a2b-ac01-ee9c1c1dabd3",
+        "title": "The Nostalgia Factory",
+        "year": 1991,
+        "cover": "covers/porcupine-tree-nostalgia-factory.jpg",
+        "palette": [
+          "#1a3a5c",
+          "#7ba7c9",
+          "#e8d5b7"
+        ],
+        "motif": "wave",
+        "tracks": [
+          [
+            "Hymn",
+            71
+          ],
+          [
+            "Footprints",
+            345
+          ],
+          [
+            "Linton Samuel Dawson",
+            181
+          ],
+          [
+            "And the Swallows Dance Above the Sun",
+            244
+          ],
+          [
+            "Queen Quotes Crowley",
+            275
+          ],
+          [
+            "No Luck With Rabbits",
+            49
+          ],
+          [
+            "Begonia Seduction Scene",
+            144
+          ],
+          [
+            "Colours Dance Angels Kiss",
+            177
+          ],
+          [
+            "Prayer",
+            106
+          ],
+          [
+            "The Nostalgia Factory",
+            482
+          ],
+          [
+            "This Long Silence",
+            403
+          ],
+          [
+            "Sinatra Rape Scene",
+            37
+          ],
+          [
+            "Hokey Cokey",
+            301
+          ],
+          [
+            "Landscare",
+            190
+          ],
+          [
+            "Delightful Suicide",
+            70
+          ],
+          [
+            "Nine Cats",
+            227
+          ],
+          [
+            "Split Image",
+            111
+          ],
+          [
+            "It Will Rain for a Million Years",
+            636
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-on-the-sunday-of-life",
+        "mbid": "a8bfbcb6-e979-3e73-a4ea-b052a02cffd8",
+        "title": "On the Sunday of Life…",
+        "year": 1992,
+        "cover": "covers/porcupine-tree-on-the-sunday-of-life.jpg",
+        "palette": [
+          "#2a2a2a",
+          "#c8c8c8",
+          "#d4a574"
+        ],
+        "motif": "grid",
+        "tracks": [
+          [
+            "Music for the Head",
+            162
+          ],
+          [
+            "Jupiter Island",
+            372
+          ],
+          [
+            "Third Eye Surfer",
+            168
+          ],
+          [
+            "On the Sunday of Life…",
+            131
+          ],
+          [
+            "The Nostalgia Factory",
+            445
+          ],
+          [
+            "Space Transmission",
+            179
+          ],
+          [
+            "Message From a Self‐Destructing Turnip",
+            27
+          ],
+          [
+            "Radioactive Toy",
+            600
+          ],
+          [
+            "Nine Cats",
+            235
+          ],
+          [
+            "Hymn",
+            74
+          ],
+          [
+            "Footprints",
+            359
+          ],
+          [
+            "Linton Samuel Dawson",
+            185
+          ],
+          [
+            "And the Swallows Dance Above the Sun",
+            243
+          ],
+          [
+            "Queen Quotes Crowley",
+            235
+          ],
+          [
+            "No Luck With Rabbits",
+            45
+          ],
+          [
+            "Begonia Seduction Scene",
+            130
+          ],
+          [
+            "This Long Silence",
+            310
+          ],
+          [
+            "It Will Rain For a Million Years",
+            647
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-up-the-downstair",
+        "mbid": "7a97da8e-a1b7-3b7c-bae0-b7851821fdfd",
+        "title": "Up the Downstair",
+        "year": 1993,
+        "cover": "covers/porcupine-tree-up-the-downstair.jpg",
+        "palette": [
+          "#8a2c1f",
+          "#f0e8d8",
+          "#c4b89d"
+        ],
+        "motif": "mountain",
+        "tracks": [
+          [
+            "What You Are Listening To… / Synesthesia / Monuments Burn Into Moments / Always Never",
+            830
+          ],
+          [
+            "Up the Downstair",
+            614
+          ],
+          [
+            "Not Beautiful Anymore / Siren / Small Fish",
+            428
+          ],
+          [
+            "Burning Sky / Fadeaway",
+            1082
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-sky-moves-sideways",
+        "mbid": "69202fd1-c977-36ba-9393-897132e7edda",
+        "title": "The Sky Moves Sideways",
+        "year": 1994,
+        "cover": "covers/porcupine-tree-sky-moves-sideways.jpg",
+        "palette": [
+          "#b8332a",
+          "#1a1a1a",
+          "#e8b89d"
+        ],
+        "motif": "weep",
+        "tracks": [
+          [
+            "The Sky Moves Sideways (Phase One)",
+            1117
+          ],
+          [
+            "Dislocated Day",
+            324
+          ],
+          [
+            "The Moon Touches Your Shoulder",
+            340
+          ],
+          [
+            "Prepare Yourself",
+            114
+          ],
+          [
+            "The Sky Moves Sideways (Phase Two)",
+            1006
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-signify",
+        "mbid": "3546d687-0c3f-3fde-a290-f94681cab3f6",
+        "title": "Signify",
+        "year": 1996,
+        "cover": "covers/porcupine-tree-signify.jpg",
+        "palette": [
+          "#1a0f3a",
+          "#e8a020",
+          "#c0386b"
+        ],
+        "motif": "splash",
+        "tracks": [
+          [
+            "Bornlivedie",
+            102
+          ],
+          [
+            "Signify",
+            206
+          ],
+          [
+            "Sleep of No Dreaming",
+            325
+          ],
+          [
+            "Pagan",
+            94
+          ],
+          [
+            "Waiting Phase One",
+            265
+          ],
+          [
+            "Waiting Phase Two",
+            376
+          ],
+          [
+            "Sever",
+            331
+          ],
+          [
+            "Idiot Prayer",
+            458
+          ],
+          [
+            "Every Home Is Wired",
+            309
+          ],
+          [
+            "Intermediate Jesus",
+            449
+          ],
+          [
+            "“Light Mass Prayers”",
+            269
+          ],
+          [
+            "Dark Matter",
+            539
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-stupid-dream",
+        "mbid": "185c22fd-57df-35ce-a90f-26335666d12d",
+        "title": "Stupid Dream",
+        "year": 1999,
+        "cover": "covers/porcupine-tree-stupid-dream.jpg",
+        "palette": [
+          "#2d4a3e",
+          "#e8e0c8",
+          "#a8956b"
+        ],
+        "motif": "leaves",
+        "tracks": [
+          [
+            "Even Less",
+            431
+          ],
+          [
+            "Piano Lessons",
+            261
+          ],
+          [
+            "Stupid Dream",
+            28
+          ],
+          [
+            "Pure Narcotic",
+            303
+          ],
+          [
+            "Slave Called Shiver",
+            281
+          ],
+          [
+            "Don’t Hate Me",
+            510
+          ],
+          [
+            "This Is No Rehearsal",
+            207
+          ],
+          [
+            "Baby Dream in Cellophane",
+            196
+          ],
+          [
+            "Stranger by the Minute",
+            271
+          ],
+          [
+            "A Smart Kid",
+            322
+          ],
+          [
+            "Tinto Brass",
+            377
+          ],
+          [
+            "Stop Swimming",
+            413
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-lightbulb-sun",
+        "mbid": "07574c97-1763-332e-b197-8f0acde2497d",
+        "title": "Lightbulb Sun",
+        "year": 2000,
+        "cover": "covers/porcupine-tree-lightbulb-sun.jpg",
+        "palette": [
+          "#5c3a1f",
+          "#d4a574",
+          "#8c5a2e"
+        ],
+        "motif": "soul",
+        "tracks": [
+          [
+            "Novak",
+            231
+          ],
+          [
+            "Buying New Soul (instrumental backing track)",
+            866
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-in-absentia",
+        "mbid": "94cfdc4c-5eb5-3b62-9dbe-8e051528c6e5",
+        "title": "In Absentia",
+        "year": 2002,
+        "cover": "covers/porcupine-tree-in-absentia.jpg",
+        "palette": [
+          "#1f1f1f",
+          "#e8e8e8",
+          "#b85c2e"
+        ],
+        "motif": "collage",
+        "tracks": [
+          [
+            "Blackest Eyes",
+            264
+          ],
+          [
+            "Trains",
+            356
+          ],
+          [
+            "Lips of Ashes",
+            279
+          ],
+          [
+            "The Sound of Muzak",
+            299
+          ],
+          [
+            "Gravity Eyelids",
+            477
+          ],
+          [
+            "Wedding Nails",
+            394
+          ],
+          [
+            "Prodigal",
+            333
+          ],
+          [
+            ".3",
+            326
+          ],
+          [
+            "The Creator Has a Mastertape",
+            322
+          ],
+          [
+            "Heartattack in a Layby",
+            256
+          ],
+          [
+            "Strip the Soul",
+            442
+          ],
+          [
+            "Collapse the Light Into Earth",
+            353
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-deadwing",
+        "mbid": "cdebdda3-f478-367c-92d2-3d592323cd91",
+        "title": "Deadwing",
+        "year": 2005,
+        "cover": "covers/porcupine-tree-deadwing.jpg",
+        "palette": [
+          "#f5f5f0",
+          "#bdb8a8",
+          "#2a2a2a"
+        ],
+        "motif": "blank",
+        "tracks": [
+          [
+            "Deadwing",
+            587
+          ],
+          [
+            "Shallow",
+            257
+          ],
+          [
+            "Lazarus",
+            259
+          ],
+          [
+            "Halo",
+            279
+          ],
+          [
+            "Arriving Somewhere But Not Here",
+            722
+          ],
+          [
+            "Mellotron Scratch",
+            417
+          ],
+          [
+            "Open Car",
+            227
+          ],
+          [
+            "Start of Something Beautiful",
+            460
+          ],
+          [
+            "Glass Arm Shattering",
+            377
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-fear-of-a-blank-planet",
+        "mbid": "bca73156-8f32-3e56-8d83-2fb537b8fb6e",
+        "title": "Fear of a Blank Planet",
+        "year": 2007,
+        "cover": "covers/porcupine-tree-fear-of-a-blank-planet.jpg",
+        "palette": [
+          "#1a1a1a",
+          "#d4af37",
+          "#8c7a3a"
+        ],
+        "motif": "windows",
+        "tracks": [
+          [
+            "Fear of a Blank Planet",
+            448
+          ],
+          [
+            "My Ashes",
+            307
+          ],
+          [
+            "Anesthetize",
+            1062
+          ],
+          [
+            "Sentimental",
+            327
+          ],
+          [
+            "Way Out of Here",
+            458
+          ],
+          [
+            "Sleep Together",
+            449
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-incident",
+        "mbid": "6f6c4a2f-7675-4680-89cc-091fc42193e9",
+        "title": "The Incident",
+        "year": 2009,
+        "cover": "covers/porcupine-tree-incident.jpg",
+        "palette": [
+          "#1a3a5c",
+          "#7ba7c9",
+          "#e8d5b7"
+        ],
+        "motif": "wave",
+        "tracks": [
+          [
+            "Occam’s Razor",
+            115
+          ],
+          [
+            "The Blind House",
+            347
+          ],
+          [
+            "Great Expectations",
+            86
+          ],
+          [
+            "Kneel and Disconnect",
+            123
+          ],
+          [
+            "Drawing the Line",
+            283
+          ],
+          [
+            "The Incident",
+            320
+          ],
+          [
+            "Your Unpleasant Family",
+            108
+          ],
+          [
+            "The Yellow Windows of the Evening Train",
+            120
+          ],
+          [
+            "Time Flies",
+            700
+          ],
+          [
+            "Degree Zero of Liberty",
+            105
+          ],
+          [
+            "Octane Twisted",
+            303
+          ],
+          [
+            "The Séance",
+            159
+          ],
+          [
+            "Circle of Manias",
+            138
+          ],
+          [
+            "I Drive the Hearse",
+            401
+          ],
+          [
+            "Flicker",
+            222
+          ],
+          [
+            "Bonnie the Cat",
+            345
+          ],
+          [
+            "Black Dahlia",
+            220
+          ],
+          [
+            "Remember Me Lover",
+            448
+          ]
+        ]
+      },
+      {
+        "id": "porcupine-tree-closure-continuation",
+        "mbid": "ed2462c0-29cd-4411-834d-4deb741219dc",
+        "title": "Closure / Continuation",
+        "year": 2022,
+        "cover": "covers/porcupine-tree-closure-continuation.jpg",
+        "palette": [
+          "#2a2a2a",
+          "#c8c8c8",
+          "#d4a574"
+        ],
+        "motif": "grid",
+        "tracks": [
+          [
+            "Harridan",
+            488
+          ],
+          [
+            "Of the New Day",
+            283
+          ],
+          [
+            "Rats Return",
+            340
+          ],
+          [
+            "Dignity",
+            502
+          ],
+          [
+            "Herd Culling",
+            423
+          ],
+          [
+            "Walk the Plank",
+            267
+          ],
+          [
+            "Chimera’s Wreck",
+            579
+          ]
+        ]
+      }
+    ]
+  },
+  "pink-floyd": {
+    "name": "Pink Floyd",
+    "mbid": "83d91898-7763-47d7-b03b-b92132375c47",
+    "bio": "Group from London. 1965–2014.",
+    "accent": "#2874a6",
+    "albums": [
+      {
+        "id": "pink-floyd-piper-at-the-gates-of-dawn",
+        "mbid": "6792b6d1-4e65-3c3c-9d20-d08aa1dcfc60",
+        "title": "The Piper at the Gates of Dawn",
+        "year": 1967,
+        "cover": "covers/pink-floyd-piper-at-the-gates-of-dawn.jpg",
+        "palette": [
+          "#1a3a5c",
+          "#7ba7c9",
+          "#e8d5b7"
+        ],
+        "motif": "wave",
+        "tracks": [
+          [
+            "See Emily Play",
+            175
+          ],
+          [
+            "Pow R. Toc H.",
+            256
+          ],
+          [
+            "Take Up Thy Stethoscope and Walk",
+            186
+          ],
+          [
+            "Lucifer Sam",
+            186
+          ],
+          [
+            "Matilda Mother",
+            179
+          ],
+          [
+            "The Scarecrow",
+            127
+          ],
+          [
+            "The Gnome",
+            131
+          ],
+          [
+            "Chapter 24",
+            231
+          ],
+          [
+            "Interstellar Overdrive",
+            582
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-a-saucerful-of-secrets",
+        "mbid": "8a9caa40-b7c6-33eb-a13c-6c15f09b1c44",
+        "title": "A Saucerful of Secrets",
+        "year": 1968,
+        "cover": "covers/pink-floyd-a-saucerful-of-secrets.jpg",
+        "palette": [
+          "#2a2a2a",
+          "#c8c8c8",
+          "#d4a574"
+        ],
+        "motif": "grid",
+        "tracks": [
+          [
+            "Let There Be More Light",
+            339
+          ],
+          [
+            "Remember a Day",
+            273
+          ],
+          [
+            "Set the Controls for the Heart of the Sun",
+            327
+          ],
+          [
+            "Corporal Clegg",
+            252
+          ],
+          [
+            "A Saucerful of Secrets",
+            720
+          ],
+          [
+            "See‐Saw",
+            277
+          ],
+          [
+            "Jugband Blues",
+            181
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-ummagumma",
+        "mbid": "b7aa61ae-3572-32c0-8b93-6af78ea83760",
+        "title": "Ummagumma",
+        "year": 1969,
+        "cover": "covers/pink-floyd-ummagumma.jpg",
+        "palette": [
+          "#8a2c1f",
+          "#f0e8d8",
+          "#c4b89d"
+        ],
+        "motif": "mountain",
+        "tracks": [
+          [
+            "Astronomy Domine",
+            508
+          ],
+          [
+            "Careful With That Axe, Eugene",
+            527
+          ],
+          [
+            "Set the Controls for the Heart of the Sun",
+            562
+          ],
+          [
+            "A Saucerful of Secrets",
+            769
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-atom-heart-mother",
+        "mbid": "e2f503d7-5488-3fe1-b3ac-f236d9f1b44c",
+        "title": "Atom Heart Mother",
+        "year": 1970,
+        "cover": "covers/pink-floyd-atom-heart-mother.jpg",
+        "palette": [
+          "#b8332a",
+          "#1a1a1a",
+          "#e8b89d"
+        ],
+        "motif": "weep",
+        "tracks": [
+          [
+            "Atom Heart Mother: a) Father’s Shout / b) Breast Milky / c) Mother Fore / d) Funky Dung / e) Mind Your Throats Please / f) Remergence",
+            1424
+          ],
+          [
+            "If",
+            270
+          ],
+          [
+            "Summer ’68",
+            329
+          ],
+          [
+            "Fat Old Sun",
+            322
+          ],
+          [
+            "Alan’s Psychedelic Breakfast: a) Rise and Shine / b) Sunny Side Up / c) Morning Glory",
+            780
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-meddle",
+        "mbid": "4e98c9b4-92f6-3049-b9da-a1088b623672",
+        "title": "Meddle",
+        "year": 1971,
+        "cover": "covers/pink-floyd-meddle.jpg",
+        "palette": [
+          "#1a0f3a",
+          "#e8a020",
+          "#c0386b"
+        ],
+        "motif": "splash",
+        "tracks": [
+          [
+            "One of These Days",
+            350
+          ],
+          [
+            "A Pillow of Winds",
+            310
+          ],
+          [
+            "Fearless (Interpolating “You’ll Never Walk Alone”)",
+            363
+          ],
+          [
+            "San Tropez",
+            222
+          ],
+          [
+            "Seamus",
+            129
+          ],
+          [
+            "Echoes",
+            1411
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-dark-side-of-the-moon",
+        "mbid": "f5093c06-23e3-404f-aeaa-40f72885ee3a",
+        "title": "The Dark Side of the Moon",
+        "year": 1973,
+        "cover": "covers/pink-floyd-dark-side-of-the-moon.jpg",
+        "palette": [
+          "#2d4a3e",
+          "#e8e0c8",
+          "#a8956b"
+        ],
+        "motif": "leaves",
+        "tracks": [
+          [
+            "Speak to Me",
+            71
+          ],
+          [
+            "Breathe",
+            164
+          ],
+          [
+            "On the Run",
+            214
+          ],
+          [
+            "Time",
+            423
+          ],
+          [
+            "The Great Gig in the Sky",
+            287
+          ],
+          [
+            "Money",
+            397
+          ],
+          [
+            "Us and Them",
+            463
+          ],
+          [
+            "Any Colour You Like",
+            207
+          ],
+          [
+            "Brain Damage",
+            232
+          ],
+          [
+            "Eclipse",
+            124
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-wish-you-were-here",
+        "mbid": "1a272023-10d3-38ee-bab3-317b55fcc21d",
+        "title": "Wish You Were Here",
+        "year": 1975,
+        "cover": "covers/pink-floyd-wish-you-were-here.jpg",
+        "palette": [
+          "#5c3a1f",
+          "#d4a574",
+          "#8c5a2e"
+        ],
+        "motif": "soul",
+        "tracks": [
+          [
+            "Shine On You Crazy Diamond, Parts 1–5",
+            811
+          ],
+          [
+            "Welcome to the Machine",
+            447
+          ],
+          [
+            "Have a Cigar",
+            308
+          ],
+          [
+            "Wish You Were Here",
+            340
+          ],
+          [
+            "Shine On You Crazy Diamond, Parts 6–9",
+            743
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-animals",
+        "mbid": "20c77fb4-1c9f-33c8-9d7e-c4977f11e847",
+        "title": "Animals",
+        "year": 1977,
+        "cover": "covers/pink-floyd-animals.jpg",
+        "palette": [
+          "#1f1f1f",
+          "#e8e8e8",
+          "#b85c2e"
+        ],
+        "motif": "collage",
+        "tracks": [
+          [
+            "Pigs on the Wing, Part 1",
+            85
+          ],
+          [
+            "Dogs",
+            1023
+          ],
+          [
+            "Pigs (Three Different Ones)",
+            685
+          ],
+          [
+            "Sheep",
+            625
+          ],
+          [
+            "Pigs on the Wing, Part 2",
+            83
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-wall",
+        "mbid": "f2026101-945b-3d05-9ef4-aa718fc3feef",
+        "title": "The Wall",
+        "year": 1979,
+        "cover": "covers/pink-floyd-wall.jpg",
+        "palette": [
+          "#c0392b",
+          "#f4d03f",
+          "#2874a6"
+        ],
+        "motif": "band",
+        "tracks": [
+          [
+            "In the Flesh?",
+            200
+          ],
+          [
+            "The Thin Ice",
+            150
+          ],
+          [
+            "Another Brick in the Wall, Part 1",
+            191
+          ],
+          [
+            "The Happiest Days of Our Lives",
+            111
+          ],
+          [
+            "Another Brick in the Wall, Part 2",
+            241
+          ],
+          [
+            "Mother",
+            334
+          ],
+          [
+            "Goodbye Blue Sky",
+            170
+          ],
+          [
+            "Empty Spaces",
+            127
+          ],
+          [
+            "Young Lust",
+            213
+          ],
+          [
+            "One of My Turns",
+            215
+          ],
+          [
+            "Don’t Leave Me Now",
+            257
+          ],
+          [
+            "Another Brick in the Wall, Part 3",
+            78
+          ],
+          [
+            "Goodbye Cruel World",
+            75
+          ],
+          [
+            "Hey You",
+            284
+          ],
+          [
+            "Is There Anybody Out There?",
+            163
+          ],
+          [
+            "Nobody Home",
+            207
+          ],
+          [
+            "Vera",
+            96
+          ],
+          [
+            "Bring the Boys Back Home",
+            89
+          ],
+          [
+            "Comfortably Numb",
+            386
+          ],
+          [
+            "The Show Must Go On",
+            98
+          ],
+          [
+            "In the Flesh",
+            260
+          ],
+          [
+            "Run Like Hell",
+            267
+          ],
+          [
+            "Waiting for the Worms",
+            240
+          ],
+          [
+            "Stop",
+            32
+          ],
+          [
+            "The Trial",
+            322
+          ],
+          [
+            "Outside the Wall",
+            104
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-final-cut",
+        "mbid": "e8b7e7a3-ef56-34a5-bedf-085783c9a076",
+        "title": "The Final Cut",
+        "year": 1983,
+        "cover": "covers/pink-floyd-final-cut.jpg",
+        "palette": [
+          "#f5f5f0",
+          "#bdb8a8",
+          "#2a2a2a"
+        ],
+        "motif": "blank",
+        "tracks": [
+          [
+            "The Post War Dream",
+            184
+          ],
+          [
+            "Your Possible Pasts",
+            263
+          ],
+          [
+            "One of the Few",
+            82
+          ],
+          [
+            "The Hero’s Return",
+            178
+          ],
+          [
+            "The Gunners Dream",
+            306
+          ],
+          [
+            "Paranoid Eyes",
+            223
+          ],
+          [
+            "Get Your Filthy Hands Off My Desert",
+            76
+          ],
+          [
+            "The Fletcher Memorial Home",
+            252
+          ],
+          [
+            "Southampton Dock",
+            128
+          ],
+          [
+            "The Final Cut",
+            289
+          ],
+          [
+            "Not Now John",
+            302
+          ],
+          [
+            "Two Suns in the Sunset",
+            320
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-a-momentary-lapse-of-reason",
+        "mbid": "4940b8aa-898b-3e60-9992-94e073bab6f6",
+        "title": "A Momentary Lapse of Reason",
+        "year": 1987,
+        "cover": "covers/pink-floyd-a-momentary-lapse-of-reason.jpg",
+        "palette": [
+          "#2d5016",
+          "#a8c45e",
+          "#1a1a1a"
+        ],
+        "motif": "crossing",
+        "tracks": [
+          [
+            "Signs of Life",
+            264
+          ],
+          [
+            "Learning to Fly",
+            293
+          ],
+          [
+            "The Dogs of War",
+            366
+          ],
+          [
+            "One Slip",
+            310
+          ],
+          [
+            "On the Turning Away",
+            342
+          ],
+          [
+            "Yet Another Movie / Round and Around",
+            448
+          ],
+          [
+            "A New Machine, Part 1",
+            107
+          ],
+          [
+            "Terminal Frost",
+            377
+          ],
+          [
+            "A New Machine, Part 2",
+            39
+          ],
+          [
+            "Sorrow",
+            527
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-division-bell",
+        "mbid": "90878b63-f639-3c8b-aefb-190bdf3d1790",
+        "title": "The Division Bell",
+        "year": 1994,
+        "cover": "covers/pink-floyd-division-bell.jpg",
+        "palette": [
+          "#1a1a1a",
+          "#d4af37",
+          "#8c7a3a"
+        ],
+        "motif": "windows",
+        "tracks": [
+          [
+            "Cluster One",
+            359
+          ],
+          [
+            "What Do You Want From Me",
+            262
+          ],
+          [
+            "Poles Apart",
+            425
+          ],
+          [
+            "Marooned",
+            328
+          ],
+          [
+            "A Great Day for Freedom",
+            258
+          ],
+          [
+            "Wearing the Inside Out",
+            409
+          ],
+          [
+            "Take It Back",
+            372
+          ],
+          [
+            "Coming Back to Life",
+            379
+          ],
+          [
+            "Keep Talking",
+            371
+          ],
+          [
+            "Lost for Words",
+            315
+          ],
+          [
+            "High Hopes",
+            478
+          ]
+        ]
+      },
+      {
+        "id": "pink-floyd-endless-river",
+        "mbid": "38b4c840-16ce-40fa-b7c0-a354b7c87178",
+        "title": "The Endless River",
+        "year": 2014,
+        "cover": "covers/pink-floyd-endless-river.jpg",
+        "palette": [
+          "#1a3a5c",
+          "#7ba7c9",
+          "#e8d5b7"
+        ],
+        "motif": "wave",
+        "tracks": [
+          [
+            "Things Left Unsaid",
+            267
+          ],
+          [
+            "It’s What We Do",
+            377
+          ],
+          [
+            "Ebb and Flow",
+            115
+          ],
+          [
+            "Sum",
+            288
+          ],
+          [
+            "Skins",
+            157
+          ],
+          [
+            "Unsung",
+            67
+          ],
+          [
+            "Anisina",
+            197
+          ],
+          [
+            "The Lost Art of Conversation",
+            103
+          ],
+          [
+            "On Noodle Street",
+            102
+          ],
+          [
+            "Night Light",
+            102
+          ],
+          [
+            "Allons‐y (1)",
+            117
+          ],
+          [
+            "Autumn ’68",
+            95
+          ],
+          [
+            "Allons‐y (2)",
+            92
+          ],
+          [
+            "Talkin’ Hawkin’",
+            209
+          ],
+          [
+            "Calling",
+            218
+          ],
+          [
+            "Eyes to Pearls",
+            111
+          ],
+          [
+            "Surfacing",
+            166
+          ],
+          [
+            "Louder Than Words",
+            397
+          ]
+        ]
+      }
+    ]
+  },
+  "thom-yorke": {
+    "name": "Thom Yorke",
+    "mbid": "8ed2e0b3-aa4c-4e13-bec3-dc7393ed4d6b",
+    "bio": "Person from Wellingborough. Formed 1968.",
+    "accent": "#e8a040",
+    "albums": [
+      {
+        "id": "thom-yorke-eraser",
+        "mbid": "2a971a81-2f4d-333b-8327-8b2d73c649cf",
+        "title": "The Eraser",
+        "year": 2006,
+        "cover": null,
+        "palette": [
+          "#1a3a5c",
+          "#7ba7c9",
+          "#e8d5b7"
+        ],
+        "motif": "wave",
+        "tracks": [
+          [
+            "The Eraser",
+            296
+          ],
+          [
+            "Analyse",
+            243
+          ],
+          [
+            "The Clock",
+            253
+          ],
+          [
+            "Black Swan",
+            290
+          ],
+          [
+            "Skip Divided",
+            216
+          ],
+          [
+            "Atoms for Peace",
+            314
+          ],
+          [
+            "And It Rained All Night",
+            256
+          ],
+          [
+            "Harrowdown Hill",
+            279
+          ],
+          [
+            "Cymbal Rush",
+            316
+          ]
+        ]
+      },
+      {
+        "id": "thom-yorke-tomorrow-s-modern-boxes",
+        "mbid": "e8edab9d-9e02-4338-be4e-7579d7214142",
+        "title": "Tomorrow’s Modern Boxes",
+        "year": 2014,
+        "cover": "covers/thom-yorke-tomorrow-s-modern-boxes.jpg",
+        "palette": [
+          "#2a2a2a",
+          "#c8c8c8",
+          "#d4a574"
+        ],
+        "motif": "grid",
+        "tracks": [
+          [
+            "A Brain in a Bottle",
+            280
+          ],
+          [
+            "Guess Again!",
+            263
+          ],
+          [
+            "Interference",
+            168
+          ],
+          [
+            "The Mother Lode",
+            367
+          ],
+          [
+            "Truth Ray",
+            313
+          ],
+          [
+            "There Is No Ice (For My Drink)",
+            420
+          ],
+          [
+            "Pink Section",
+            154
+          ],
+          [
+            "Nose Grows Some",
+            322
+          ]
+        ]
+      },
+      {
+        "id": "thom-yorke-anima",
+        "mbid": "447435e2-8395-45f5-812b-f03f7525c8d6",
+        "title": "ANIMA",
+        "year": 2019,
+        "cover": "covers/thom-yorke-anima.jpg",
+        "palette": [
+          "#8a2c1f",
+          "#f0e8d8",
+          "#c4b89d"
+        ],
+        "motif": "mountain",
+        "tracks": [
+          [
+            "Traffic",
+            318
+          ],
+          [
+            "Last I Heard (…He Was Circling the Drain)",
+            307
+          ],
+          [
+            "Twist",
+            423
+          ],
+          [
+            "Dawn Chorus",
+            323
+          ],
+          [
+            "I Am a Very Rude Person",
+            225
+          ],
+          [
+            "Not the News",
+            237
+          ],
+          [
+            "The Axe",
+            419
+          ],
+          [
+            "Impossible Knots",
+            260
+          ],
+          [
+            "Runwayaway",
+            357
+          ]
+        ]
+      },
+      {
+        "id": "thom-yorke-tall-tales",
+        "mbid": "80e3d46d-8d77-409c-947d-efe50f02806f",
+        "title": "Tall Tales",
+        "year": 2025,
+        "cover": "covers/thom-yorke-tall-tales.jpg",
+        "palette": [
+          "#b8332a",
+          "#1a1a1a",
+          "#e8b89d"
+        ],
+        "motif": "weep",
+        "tracks": [
+          [
+            "A Fake in a Faker’s World",
+            498
+          ],
+          [
+            "Ice Shelf",
+            287
+          ],
+          [
+            "Bugging Out Again",
+            285
+          ],
+          [
+            "Back in the Game",
+            281
+          ],
+          [
+            "The White Cliffs",
+            499
+          ],
+          [
+            "The Spirit",
+            296
+          ],
+          [
+            "Gangsters",
+            209
+          ],
+          [
+            "This Conversation Is Missing Your Voice",
+            234
+          ],
+          [
+            "Tall Tales",
+            310
+          ],
+          [
+            "Happy Days",
+            261
+          ],
+          [
+            "The Men Who Dance in Stag’s Heads",
+            222
+          ],
+          [
+            "Wandering Genie",
+            331
+          ]
+        ]
+      }
+    ]
   }
 };
