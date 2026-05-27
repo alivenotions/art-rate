@@ -514,6 +514,37 @@ function loadTweaks() {
   } catch { return TWEAK_DEFAULTS; }
 }
 
+const siteAuth = {
+  _authed: null,
+  async check() {
+    if (this._authed !== null) return this._authed;
+    try {
+      const res = await fetch('/api/auth');
+      const { authenticated } = await res.json();
+      this._authed = authenticated;
+      return authenticated;
+    } catch { return false; }
+  },
+  async login() {
+    const pw = window.prompt('Enter site password to save changes:');
+    if (!pw) return false;
+    try {
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: pw })
+      });
+      if (res.ok) { this._authed = true; return true; }
+      window.alert('Wrong password.');
+      return false;
+    } catch { return false; }
+  },
+  async ensure() {
+    if (await this.check()) return true;
+    return this.login();
+  }
+};
+
 const kvSync = {
   _timers: {},
   async load(key) {
@@ -526,12 +557,24 @@ const kvSync = {
   },
   save(key, data) {
     clearTimeout(this._timers[key]);
-    this._timers[key] = setTimeout(() => {
-      fetch(`/api/kv/${key}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      }).catch(() => {});
+    this._timers[key] = setTimeout(async () => {
+      if (!await siteAuth.ensure()) return;
+      try {
+        const res = await fetch(`/api/kv/${key}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        if (res.status === 401) {
+          siteAuth._authed = false;
+          if (!await siteAuth.login()) return;
+          await fetch(`/api/kv/${key}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+        }
+      } catch {}
     }, 1000);
   }
 };

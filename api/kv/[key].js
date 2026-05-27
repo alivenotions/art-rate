@@ -1,8 +1,19 @@
+const crypto = require('crypto');
 const { Redis } = require('@upstash/redis');
 
 const ALLOWED_KEYS = ['ratings', 'tweaks'];
 
 const redis = Redis.fromEnv();
+
+function isAuthenticated(req) {
+  const token = req.cookies?.phonograph_session;
+  const expected = process.env.SESSION_SECRET;
+  if (!token || !expected) return false;
+  const bufA = Buffer.from(token);
+  const bufB = Buffer.from(expected);
+  if (bufA.length !== bufB.length) return false;
+  return crypto.timingSafeEqual(bufA, bufB);
+}
 
 module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -21,6 +32,9 @@ module.exports = async function handler(req, res) {
       return res.json(data || {});
     }
     if (req.method === 'POST') {
+      if (!isAuthenticated(req)) {
+        return res.status(401).json({ error: 'Unauthorized' });
+      }
       await redis.set(kvKey, JSON.stringify(req.body));
       return res.json({ ok: true });
     }
