@@ -1852,7 +1852,7 @@ window.DISCOGRAPHY = {
         "mbid": "f1afec0b-26dd-3db5-9aa1-c91229a74a24",
         "title": "Bleach",
         "year": 1989,
-        "cover": null,
+        "cover": "covers/nirvana-bleach.jpg",
         "palette": [
           "#1a3a5c",
           "#7ba7c9",
@@ -3711,7 +3711,7 @@ window.DISCOGRAPHY = {
         "mbid": "2a971a81-2f4d-333b-8327-8b2d73c649cf",
         "title": "The Eraser",
         "year": 2006,
-        "cover": null,
+        "cover": "covers/thom-yorke-eraser.jpg",
         "palette": [
           "#1a3a5c",
           "#7ba7c9",
