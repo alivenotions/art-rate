@@ -803,7 +803,7 @@ function albumScoreOf(album, ratings) {
 }
 
 // ── Sidebar ─────────────────────────────────────────────────────────────────
-function Sidebar({ artistKey, albumId, setAlbumId, ratings, onShowStats, onBackToLibrary }) {
+function Sidebar({ artistKey, albumId, setAlbumId, ratings, onShowStats, onShowAlbumStats, onBackToLibrary }) {
   const artist = DISCOGRAPHY[artistKey];
   return (
     <aside className="sidebar">
@@ -853,6 +853,10 @@ function Sidebar({ artistKey, albumId, setAlbumId, ratings, onShowStats, onBackT
 
       <button className="stats-btn" onClick={onShowStats}>
         <span>Your top tracks</span>
+        <span className="chev">{"→"}</span>
+      </button>
+      <button className="stats-btn" onClick={onShowAlbumStats}>
+        <span>Your top albums</span>
         <span className="chev">{"→"}</span>
       </button>
     </aside>
@@ -1033,8 +1037,59 @@ function StatsPanel({ ratings, onClose, scale }) {
   );
 }
 
+// ── Top Albums panel ────────────────────────────────────────────────────────
+function TopAlbumsPanel({ ratings, onClose, scale }) {
+  const allAlbums = [];
+  Object.values(DISCOGRAPHY).forEach(artist => {
+    artist.albums.forEach(album => {
+      const score = albumScoreOf(album, ratings);
+      if (score != null) {
+        const ratedCount = album.tracks.filter((_, i) => ratings[`${album.id}-${i}`] != null).length;
+        allAlbums.push({
+          title: album.title, artist: artist.name, album, score,
+          year: album.year, ratedCount, totalTracks: album.tracks.length
+        });
+      }
+    });
+  });
+  allAlbums.sort((a, b) => b.score - a.score);
+  const top = allAlbums.slice(0, 30);
+
+  return (
+    <div className="stats-overlay" onClick={onClose}>
+      <div className="stats-panel" onClick={e => e.stopPropagation()}>
+        <div className="stats-head">
+          <div>
+            <div className="stats-kicker">Your ledger</div>
+            <h2>Top rated albums</h2>
+            <div className="stats-sub">{allAlbums.length} albums rated across {new Set(allAlbums.map(a=>a.artist)).size} artists</div>
+          </div>
+          <button className="close-btn" onClick={onClose}>{"×"}</button>
+        </div>
+        {top.length === 0 ? (
+          <div className="empty-msg">Rate some tracks to see album scores here.</div>
+        ) : (
+          <ol className="top-list">
+            {top.map((a, i) => (
+              <li key={i}>
+                <span className="top-rank">{i+1}</span>
+                <AlbumCover album={a.album} size={36} />
+                <div className="top-text">
+                  <div className="top-title">{a.title}</div>
+                  <div className="top-meta">{a.artist} · {a.year} · {a.ratedCount}/{a.totalTracks} rated</div>
+                </div>
+                <div className="top-score">{(a.score * scale).toFixed(scale > 10 ? 0 : 1)}</div>
+              </li>
+            ))}
+          </ol>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ── Library view ────────────────────────────────────────────────────────────
-function LibraryView({ ratings, onPickArtist, onShowStats, scale }) {
+function LibraryView({ ratings, onPickArtist, onShowStats, onShowAlbumStats, scale }) {
   const artistEntries = Object.entries(DISCOGRAPHY).map(([k, artist]) => {
     let ratedCount = 0, sum = 0;
     const albumAverages = [];
@@ -1080,6 +1135,10 @@ function LibraryView({ ratings, onPickArtist, onShowStats, scale }) {
             <button className="lib-stat link" onClick={onShowStats}>
               <div className="lib-stat-num">{"→"}</div>
               <div className="lib-stat-label">Top tracks</div>
+            </button>
+            <button className="lib-stat link" onClick={onShowAlbumStats}>
+              <div className="lib-stat-num">{"→"}</div>
+              <div className="lib-stat-label">Top albums</div>
             </button>
           </div>
         </div>
@@ -1302,6 +1361,7 @@ function App() {
 
   const [ratings, setRatings] = useState(loadRatings);
   const [showStats, setShowStats] = useState(false);
+  const [showAlbumStats, setShowAlbumStats] = useState(false);
 
   useEffect(() => {
     kvSync.load('ratings').then(remote => {
@@ -1354,6 +1414,7 @@ function App() {
             setAlbumId={setAlbumId}
             ratings={ratings}
             onShowStats={() => setShowStats(true)}
+            onShowAlbumStats={() => setShowAlbumStats(true)}
             onBackToLibrary={() => setView("library")}
           />
           <main className="main">
@@ -1375,11 +1436,13 @@ function App() {
             ratings={ratings}
             onPickArtist={(k) => { setArtistKey(k); setView("artist"); }}
             onShowStats={() => setShowStats(true)}
+            onShowAlbumStats={() => setShowAlbumStats(true)}
             scale={tweaks.scale}
           />
         </main>
       )}
       {showStats && <StatsPanel ratings={ratings} scale={tweaks.scale} onClose={() => setShowStats(false)} />}
+      {showAlbumStats && <TopAlbumsPanel ratings={ratings} scale={tweaks.scale} onClose={() => setShowAlbumStats(false)} />}
 
       <TweaksPanel
         tweaks={tweaks}
