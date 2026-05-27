@@ -700,9 +700,9 @@ function RatingControl({ value, onChange, scale, style }) {
     const slots = 10;
     const filled = display * slots;
     return (
-      <div className="rating dots" ref={ref}
-        onMouseMove={handleMove} onMouseLeave={handleLeave} onClick={handleClick}>
-        <div className="dots-row">
+      <div className="rating dots">
+        <div className="dots-row" ref={ref}
+          onMouseMove={handleMove} onMouseLeave={handleLeave} onClick={handleClick}>
           {Array.from({length: slots}).map((_, i) => {
             const fill = Math.max(0, Math.min(1, filled - i));
             return (
@@ -721,9 +721,9 @@ function RatingControl({ value, onChange, scale, style }) {
 
   if (style === "bar") {
     return (
-      <div className="rating bar" ref={ref}
-        onMouseMove={handleMove} onMouseLeave={handleLeave} onClick={handleClick}>
-        <div className="bar-track">
+      <div className="rating bar">
+        <div className="bar-track" ref={ref}
+          onMouseMove={handleMove} onMouseLeave={handleLeave} onClick={handleClick}>
           <div className="bar-fill" style={{width: `${display * 100}%`}} />
         </div>
         <span className="rating-num">{showLabel ? (display * scale).toFixed(scale > 10 ? 0 : 1) : "—"}</span>
@@ -734,9 +734,9 @@ function RatingControl({ value, onChange, scale, style }) {
   const starCount = scale <= 5 ? 5 : 10;
   const filled = display * starCount;
   return (
-    <div className="rating stars" ref={ref}
-      onMouseMove={handleMove} onMouseLeave={handleLeave} onClick={handleClick}>
-      <div className="stars-row">
+    <div className="rating stars">
+      <div className="stars-row" ref={ref}
+        onMouseMove={handleMove} onMouseLeave={handleLeave} onClick={handleClick}>
         {Array.from({length: starCount}).map((_, i) => {
           const fill = Math.max(0, Math.min(1, filled - i));
           return (
