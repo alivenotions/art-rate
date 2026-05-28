@@ -947,7 +947,7 @@ function AlbumView({ album, ratings, setRating, scale, ratingStyle, sortBy, arti
     });
     return bins;
   }, [histogramBins, rated]);
-  const maxBin = Math.max(...histogram, 1);
+  const ratedCount = rated.length || 1;
 
   return (
     <div className="album-view" style={{"--accent": album.palette[2] || album.palette[1]}}>
@@ -982,7 +982,7 @@ function AlbumView({ album, ratings, setRating, scale, ratingStyle, sortBy, arti
               <div className="histo-bars">
                 {histogram.map((n, i) => (
                   <div key={i} className="histo-bar" title={`${histogramBucketLabel(i, scale, histogramBins)}: ${n} rating${n === 1 ? '' : 's'}`}>
-                    <div className="histo-bar-fill" style={{height: n ? `${Math.max((n / maxBin) * 100, 10)}%` : '0%'}} />
+                    <div className="histo-bar-fill" style={{height: n ? `${Math.max((n / ratedCount) * 100, 10)}%` : '0%'}} />
                   </div>
                 ))}
               </div>
