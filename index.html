@@ -184,12 +184,21 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
   font-variant-numeric: tabular-nums;
 }
 .stat-unit { font-size: 20px; color: var(--ink-3); margin-left: 4px; }
-.stat-block.histo { flex: 1; max-width: 280px; }
-.histo-bars { display: flex; gap: 3px; align-items: flex-end; height: 44px; }
-.histo-bar { flex: 1; background: var(--bg-3); border-radius: 1px; position: relative; overflow: hidden; }
+.stat-block.histo { flex: 1 1 280px; max-width: 280px; min-width: 220px; }
+.histo-bars { display: flex; gap: 4px; align-items: flex-end; height: 52px; }
+.histo-bar {
+  flex: 1;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%), var(--bg-3);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
 .histo-bar-fill {
   position: absolute; bottom: 0; left: 0; right: 0;
-  background: var(--accent); transition: height .3s;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 72%, white) 0%, var(--accent) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: height .3s;
 }
 .histo-axis { display: flex; justify-content: space-between; font-size: 10px; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; }
 
@@ -802,8 +811,18 @@ function albumScoreOf(album, ratings) {
   return r.reduce((a,b) => a+b, 0) / r.length;
 }
 
+function fmtBucketValue(value) {
+  return Number.isInteger(value) ? String(value) : value.toFixed(1).replace(/\.0$/, '');
+}
+
+function histogramBucketLabel(index, scale, binCount) {
+  const start = (index * scale) / binCount;
+  const end = ((index + 1) * scale) / binCount;
+  return `${fmtBucketValue(start)}-${fmtBucketValue(end)}`;
+}
+
 // ── Sidebar ─────────────────────────────────────────────────────────────────
-function Sidebar({ artistKey, albumId, setAlbumId, ratings, onShowStats, onShowAlbumStats, onBackToLibrary }) {
+function Sidebar({ artistKey, albumId, setAlbumId, ratings, onShowStats, onShowAlbumStats, onBackToLibrary, scale }) {
   const artist = DISCOGRAPHY[artistKey];
   return (
     <aside className="sidebar">
@@ -843,7 +862,7 @@ function Sidebar({ artistKey, albumId, setAlbumId, ratings, onShowStats, onShowA
                   </div>
                 </div>
                 {score != null && (
-                  <div className="album-row-score">{(score * 10).toFixed(1)}</div>
+                  <div className="album-row-score">{(score * scale).toFixed(scale > 10 ? 0 : 1)}</div>
                 )}
               </button>
             </li>
@@ -917,15 +936,16 @@ function AlbumView({ album, ratings, setRating, scale, ratingStyle, sortBy, arti
   const rated = album.tracks.map((_, i) => ratings[`${album.id}-${i}`]).filter(v => v != null);
   const avg = rated.length ? rated.reduce((a,b) => a+b, 0) / rated.length : null;
   const totalDur = album.tracks.reduce((s, [,d]) => s + d, 0);
+  const histogramBins = 10;
 
   const histogram = useMemo(() => {
-    const bins = Array(10).fill(0);
+    const bins = Array(histogramBins).fill(0);
     rated.forEach(r => {
-      const b = Math.max(0, Math.min(9, Math.floor(r * 10)));
+      const b = Math.max(0, Math.min(histogramBins - 1, Math.floor(r * histogramBins)));
       bins[b]++;
     });
     return bins;
-  }, [rated]);
+  }, [histogramBins, rated]);
   const maxBin = Math.max(...histogram, 1);
 
   return (
@@ -960,13 +980,13 @@ function AlbumView({ album, ratings, setRating, scale, ratingStyle, sortBy, arti
               <div className="stat-label">Distribution</div>
               <div className="histo-bars">
                 {histogram.map((n, i) => (
-                  <div key={i} className="histo-bar" title={`${(i+1)} - ${(i+1)*0.1*scale}`}>
-                    <div className="histo-bar-fill" style={{height: `${(n/maxBin)*100}%`}} />
+                  <div key={i} className="histo-bar" title={`${histogramBucketLabel(i, scale, histogramBins)}: ${n} rating${n === 1 ? '' : 's'}`}>
+                    <div className="histo-bar-fill" style={{height: n ? `${Math.max((n / maxBin) * 100, 10)}%` : '0%'}} />
                   </div>
                 ))}
               </div>
               <div className="histo-axis">
-                <span>low</span><span>high</span>
+                <span>0</span><span>{scale}</span>
               </div>
             </div>
           </div>
@@ -1413,6 +1433,7 @@ function App() {
             albumId={album.id}
             setAlbumId={setAlbumId}
             ratings={ratings}
+            scale={tweaks.scale}
             onShowStats={() => setShowStats(true)}
             onShowAlbumStats={() => setShowAlbumStats(true)}
             onBackToLibrary={() => setView("library")}
