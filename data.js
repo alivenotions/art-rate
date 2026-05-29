@@ -624,7 +624,7 @@ window.DISCOGRAPHY = {
       {
         "id": "beatles-with-the-beatles",
         "mbid": "a63dc65f-09f2-359b-a10e-648f00ecd96c",
-        "title": "With The Beatles",
+        "title": "With the Beatles",
         "year": 1963,
         "cover": "covers/beatles-with-the-beatles.jpg",
         "palette": [
@@ -635,10 +635,6 @@ window.DISCOGRAPHY = {
         "motif": "grid",
         "tracks": [
           [
-            "I Want to Hold Your Hand",
-            147
-          ],
-          [
             "It Won't Be Long",
             133
           ],
@@ -647,24 +643,32 @@ window.DISCOGRAPHY = {
             124
           ],
           [
-            "Little Child",
-            108
+            "All My Loving",
+            126
           ],
           [
             "Don't Bother Me",
             149
           ],
           [
+            "Little Child",
+            108
+          ],
+          [
+            "Till There Was You",
+            134
+          ],
+          [
             "Please Mister Postman",
             157
           ],
           [
-            "She Loves You",
-            141
-          ],
-          [
             "Roll Over Beethoven",
             167
+          ],
+          [
+            "Hold Me Tight",
+            112
           ],
           [
             "You Really Got a Hold on Me",
@@ -675,21 +679,25 @@ window.DISCOGRAPHY = {
             119
           ],
           [
-            "Devil In Her Heart",
-            147
+            "Devil in Her Heart",
+            146
           ],
           [
-            "I Saw Her Standing There",
-            175
+            "Not a Second Time",
+            129
+          ],
+          [
+            "Money (That's What I Want)",
+            167
           ]
         ]
       },
       {
-        "id": "beatles-introducing-the-beatles",
-        "mbid": "653895d1-b592-3758-8bb1-8b9ba2bd6cb0",
-        "title": "Introducing… The Beatles",
+        "id": "beatles-a-hard-day-s-night",
+        "mbid": "90b77f39-9ca4-3986-b3d8-5caa2e3b2e30",
+        "title": "A Hard Day's Night",
         "year": 1964,
-        "cover": "covers/beatles-introducing-the-beatles.jpg",
+        "cover": "covers/beatles-a-hard-day-s-night.jpg",
         "palette": [
           "#8a2c1f",
           "#f0e8d8",
@@ -698,367 +706,56 @@ window.DISCOGRAPHY = {
         "motif": "mountain",
         "tracks": [
           [
-            "I Saw Her Standing There",
-            176
-          ],
-          [
-            "Misery",
-            105
-          ],
-          [
-            "Anna",
-            178
-          ],
-          [
-            "Chains",
-            146
-          ],
-          [
-            "Boys",
-            148
-          ],
-          [
-            "Ask Me Why",
-            148
-          ],
-          [
-            "Please Please Me",
-            122
-          ],
-          [
-            "Baby It’s You",
-            158
-          ],
-          [
-            "Do You Want to Know a Secret?",
-            120
-          ],
-          [
-            "A Taste of Honey",
-            125
-          ],
-          [
-            "There’s a Place",
-            113
-          ],
-          [
-            "Twist and Shout",
-            153
-          ]
-        ]
-      },
-      {
-        "id": "beatles-meet-the-beatles",
-        "mbid": "c2c696fc-6beb-3dfb-bb15-7bb021ebeb5d",
-        "title": "Meet The Beatles!",
-        "year": 1964,
-        "cover": "covers/beatles-meet-the-beatles.jpg",
-        "palette": [
-          "#b8332a",
-          "#1a1a1a",
-          "#e8b89d"
-        ],
-        "motif": "weep",
-        "tracks": [
-          [
-            "I Want to Hold Your Hand",
-            149
-          ],
-          [
-            "I Saw Her Standing There",
-            177
-          ],
-          [
-            "This Boy",
-            138
-          ],
-          [
-            "It Won’t Be Long",
-            136
-          ],
-          [
-            "All I’ve Got to Do",
-            128
-          ],
-          [
-            "All My Loving",
-            130
-          ],
-          [
-            "Don’t Bother Me",
-            151
-          ],
-          [
-            "Little Child",
-            110
-          ],
-          [
-            "Till There Was You",
-            140
-          ],
-          [
-            "Hold Me Tight",
+            "A Hard Day's Night",
             154
           ],
           [
-            "I Wanna Be Your Man",
-            122
+            "I Should Have Known Better",
+            163
           ],
           [
-            "Not a Second Time",
-            127
-          ]
-        ]
-      },
-      {
-        "id": "beatles-twist-and-shout",
-        "mbid": "31770e0a-e537-376d-a7c0-48e507f3105e",
-        "title": "Twist and Shout",
-        "year": 1964,
-        "cover": "covers/beatles-twist-and-shout.jpg",
-        "palette": [
-          "#1a0f3a",
-          "#e8a020",
-          "#c0386b"
-        ],
-        "motif": "splash",
-        "tracks": [
-          [
-            "Anna (Go to Him)",
-            175
+            "If I Fell",
+            138
           ],
           [
-            "Chains",
-            142
+            "I'm Happy Just to Dance with You",
+            116
           ],
           [
-            "Boys",
-            145
-          ],
-          [
-            "Ask Me Why",
-            142
-          ],
-          [
-            "Please Please Me",
-            120
-          ],
-          [
-            "Love Me Do",
-            142
-          ],
-          [
-            "From Me to You",
-            120
-          ],
-          [
-            "P.S. I Love You",
-            122
-          ],
-          [
-            "Baby It’s You",
-            153
-          ],
-          [
-            "Do You Want to Know a Secret",
-            115
-          ],
-          [
-            "A Taste of Honey",
-            121
-          ],
-          [
-            "There’s a Place",
-            110
-          ],
-          [
-            "Twist and Shout",
+            "And I Love Her",
             152
           ],
           [
-            "She Loves You",
-            143
-          ]
-        ]
-      },
-      {
-        "id": "beatles-beatles-second-album",
-        "mbid": "387bc6cc-ac60-365f-819b-fbc78c486065",
-        "title": "The Beatles’ Second Album",
-        "year": 1964,
-        "cover": "covers/beatles-beatles-second-album.jpg",
-        "palette": [
-          "#2d4a3e",
-          "#e8e0c8",
-          "#a8956b"
-        ],
-        "motif": "leaves",
-        "tracks": [
-          [
-            "Roll Over Beethoven",
-            164
+            "Tell Me Why",
+            130
           ],
           [
-            "Thank You Girl",
-            121
+            "Can't Buy Me Love",
+            131
           ],
           [
-            "You Really Got a Hold on Me",
-            178
+            "Any Time at All",
+            131
           ],
           [
-            "Devil in Her Heart",
-            143
-          ],
-          [
-            "Money (That’s What I Want)",
-            167
-          ],
-          [
-            "You Can’t Do That",
-            153
-          ],
-          [
-            "Long Tall Sally",
-            123
-          ],
-          [
-            "I Call Your Name",
-            129
-          ],
-          [
-            "Please Mister Postman",
-            154
-          ],
-          [
-            "I’ll Get You",
-            124
-          ],
-          [
-            "She Loves You",
-            139
-          ]
-        ]
-      },
-      {
-        "id": "beatles-beatles-long-tall-sally",
-        "mbid": "d0c93a59-fc4d-3d76-ac38-9c1d11071802",
-        "title": "The Beatles’ Long Tall Sally",
-        "year": 1964,
-        "cover": "covers/beatles-beatles-long-tall-sally.jpg",
-        "palette": [
-          "#5c3a1f",
-          "#d4a574",
-          "#8c5a2e"
-        ],
-        "motif": "soul",
-        "tracks": [
-          [
-            "I Want to Hold Your Hand",
-            151
-          ],
-          [
-            "I Saw Her Standing There",
-            178
-          ],
-          [
-            "You Really Got a Hold on Me",
-            185
-          ],
-          [
-            "Devil in Her Heart",
-            151
-          ],
-          [
-            "Roll Over Beethoven",
-            169
-          ],
-          [
-            "Misery",
-            112
-          ],
-          [
-            "Long Tall Sally",
-            127
-          ],
-          [
-            "I Call Your Name",
-            134
-          ],
-          [
-            "Please Mister Postman",
-            159
-          ],
-          [
-            "This Boy",
-            138
-          ],
-          [
-            "I’ll Get You",
-            128
-          ],
-          [
-            "You Can’t Do That",
-            153
-          ]
-        ]
-      },
-      {
-        "id": "beatles-something-new",
-        "mbid": "451e7aa4-a782-3979-9aa0-98c03a246fe9",
-        "title": "Something New",
-        "year": 1964,
-        "cover": "covers/beatles-something-new.jpg",
-        "palette": [
-          "#1f1f1f",
-          "#e8e8e8",
-          "#b85c2e"
-        ],
-        "motif": "collage",
-        "tracks": [
-          [
-            "I’ll Cry Instead",
-            124
+            "I'll Cry Instead",
+            106
           ],
           [
             "Things We Said Today",
             155
           ],
           [
-            "Any Time at All",
-            130
-          ],
-          [
             "When I Get Home",
-            134
+            138
           ],
           [
-            "Slow Down",
-            174
+            "You Can't Do That",
+            155
           ],
           [
-            "Matchbox",
-            97
-          ],
-          [
-            "Tell Me Why",
-            126
-          ],
-          [
-            "And I Love Her",
-            148
-          ],
-          [
-            "I’m Happy Just to Dance With You",
-            116
-          ],
-          [
-            "If I Fell",
-            139
-          ],
-          [
-            "Komm, gib mir deine Hand (I Want to Hold Your Hand)",
-            144
+            "I'll Be Back",
+            142
           ]
         ]
       },
@@ -1080,11 +777,11 @@ window.DISCOGRAPHY = {
             138
           ],
           [
-            "I’m a Loser",
+            "I'm a Loser",
             154
           ],
           [
-            "Baby’s in Black",
+            "Baby's in Black",
             128
           ],
           [
@@ -1092,7 +789,7 @@ window.DISCOGRAPHY = {
             154
           ],
           [
-            "I’ll Follow the Sun",
+            "I'll Follow the Sun",
             111
           ],
           [
@@ -1100,8 +797,8 @@ window.DISCOGRAPHY = {
             157
           ],
           [
-            "Kansas City",
-            153
+            "Kansas City/Hey-Hey-Hey-Hey!",
+            151
           ],
           [
             "Eight Days a Week",
@@ -1112,7 +809,7 @@ window.DISCOGRAPHY = {
             135
           ],
           [
-            "Honey Don’t",
+            "Honey Don't",
             180
           ],
           [
@@ -1120,134 +817,16 @@ window.DISCOGRAPHY = {
             125
           ],
           [
-            "I Don’t Want to Spoil the Party",
+            "I Don't Want to Spoil the Party",
             156
           ],
           [
-            "What You’re Doing",
+            "What You're Doing",
             155
           ],
           [
-            "Everybody’s Trying to Be My Baby",
+            "Everybody's Trying to Be My Baby",
             144
-          ]
-        ]
-      },
-      {
-        "id": "beatles-beatles-65",
-        "mbid": "2d111aea-50f8-33cc-ab63-780bc57068c0",
-        "title": "Beatles ’65",
-        "year": 1964,
-        "cover": "covers/beatles-beatles-65.jpg",
-        "palette": [
-          "#f5f5f0",
-          "#bdb8a8",
-          "#2a2a2a"
-        ],
-        "motif": "blank",
-        "tracks": [
-          [
-            "No Reply",
-            135
-          ],
-          [
-            "I’m a Loser",
-            151
-          ],
-          [
-            "Baby’s in Black",
-            122
-          ],
-          [
-            "Rock and Roll Music",
-            122
-          ],
-          [
-            "I’ll Follow the Sun",
-            106
-          ],
-          [
-            "Mr. Moonlight",
-            155
-          ],
-          [
-            "Honey Don’t",
-            176
-          ],
-          [
-            "I’ll Be Back",
-            142
-          ],
-          [
-            "She’s a Woman",
-            177
-          ],
-          [
-            "I Feel Fine",
-            140
-          ],
-          [
-            "Everybody’s Trying to Be My Baby",
-            144
-          ]
-        ]
-      },
-      {
-        "id": "beatles-beatles-vi",
-        "mbid": "3d402374-9538-3c09-8566-2850fa3fce3f",
-        "title": "Beatles VI",
-        "year": 1965,
-        "cover": "covers/beatles-beatles-vi.jpg",
-        "palette": [
-          "#2d5016",
-          "#a8c45e",
-          "#1a1a1a"
-        ],
-        "motif": "crossing",
-        "tracks": [
-          [
-            "Kansas City",
-            150
-          ],
-          [
-            "Eight Days a Week",
-            163
-          ],
-          [
-            "You Like Me Too Much",
-            154
-          ],
-          [
-            "Bad Boy",
-            137
-          ],
-          [
-            "I Don’t Want to Spoil the Party",
-            153
-          ],
-          [
-            "Words of Love",
-            130
-          ],
-          [
-            "What You’re Doing",
-            150
-          ],
-          [
-            "Yes It Is",
-            160
-          ],
-          [
-            "Dizzy Miss Lizzie",
-            171
-          ],
-          [
-            "Tell Me What You See",
-            155
-          ],
-          [
-            "Every Little Thing",
-            121
           ]
         ]
       },
@@ -1266,51 +845,59 @@ window.DISCOGRAPHY = {
         "tracks": [
           [
             "Help!",
-            155
+            138
           ],
           [
             "The Night Before",
-            153
-          ],
-          [
-            "From Me to You Fantasy",
-            123
+            155
           ],
           [
             "You've Got to Hide Your Love Away",
-            128
+            131
           ],
           [
             "I Need You",
             148
           ],
           [
-            "In the Tyrol",
-            141
-          ],
-          [
             "Another Girl",
-            122
+            125
           ],
           [
-            "Another Hard Day's Night",
-            148
+            "You're Going to Lose That Girl",
+            139
           ],
           [
             "Ticket to Ride",
-            183
+            190
           ],
           [
-            "The Bitter End / You Can't Do That",
-            140
+            "Act Naturally",
+            150
           ],
           [
-            "You're Gonna Lose That Girl",
-            138
+            "It's Only Love",
+            114
           ],
           [
-            "The Chase",
-            144
+            "You Like Me Too Much",
+            156
+          ],
+          [
+            "Tell Me What You See",
+            157
+          ],
+          [
+            "I've Just Seen a Face",
+            124
+          ],
+          [
+            "Yesterday",
+            125
+          ],
+          [
+            "Dizzy Miss Lizzy",
+            173
           ]
         ]
       },
@@ -1328,111 +915,60 @@ window.DISCOGRAPHY = {
         "motif": "wave",
         "tracks": [
           [
-            "I’ve Just Seen a Face",
-            129
-          ],
-          [
-            "Norwegian Wood (This Bird Has Flown)",
-            128
-          ],
-          [
-            "You Won’t See Me",
-            208
-          ],
-          [
-            "Think for Yourself",
-            142
-          ],
-          [
-            "The Word",
-            168
-          ],
-          [
-            "Michelle",
-            167
-          ],
-          [
-            "It’s Only Love",
-            119
-          ],
-          [
-            "Girl",
-            154
-          ],
-          [
-            "I’m Looking Through You",
-            153
-          ],
-          [
-            "In My Life",
-            150
-          ],
-          [
-            "Wait",
-            138
-          ],
-          [
-            "Run for Your Life",
-            143
-          ]
-        ]
-      },
-      {
-        "id": "beatles-yesterday-and-today",
-        "mbid": "0a4d1024-3463-3c74-8500-ea011bd5d523",
-        "title": "Yesterday and Today",
-        "year": 1966,
-        "cover": "covers/beatles-yesterday-and-today.jpg",
-        "palette": [
-          "#2a2a2a",
-          "#c8c8c8",
-          "#d4a574"
-        ],
-        "motif": "grid",
-        "tracks": [
-          [
             "Drive My Car",
             145
           ],
           [
-            "I’m Only Sleeping",
-            178
+            "Norwegian Wood (This Bird Has Flown)",
+            125
+          ],
+          [
+            "You Won't See Me",
+            199
           ],
           [
             "Nowhere Man",
-            160
-          ],
-          [
-            "Dr. Robert",
-            134
-          ],
-          [
-            "Yesterday",
-            124
-          ],
-          [
-            "Act Naturally",
-            147
-          ],
-          [
-            "And Your Bird Can Sing",
-            122
-          ],
-          [
-            "If I Needed Someone",
-            139
-          ],
-          [
-            "We Can Work It Out",
-            130
-          ],
-          [
-            "What Goes On",
             164
           ],
           [
-            "Day Tripper",
+            "Think for Yourself",
+            138
+          ],
+          [
+            "The Word",
+            163
+          ],
+          [
+            "Michelle",
+            162
+          ],
+          [
+            "What Goes On",
             167
+          ],
+          [
+            "Girl",
+            151
+          ],
+          [
+            "I'm Looking Through You",
+            147
+          ],
+          [
+            "In My Life",
+            146
+          ],
+          [
+            "Wait",
+            134
+          ],
+          [
+            "If I Needed Someone",
+            143
+          ],
+          [
+            "Run for Your Life",
+            130
           ]
         ]
       },
@@ -1443,55 +979,67 @@ window.DISCOGRAPHY = {
         "year": 1966,
         "cover": "covers/beatles-revolver.jpg",
         "palette": [
-          "#8a2c1f",
-          "#f0e8d8",
-          "#c4b89d"
+          "#2a2a2a",
+          "#c8c8c8",
+          "#d4a574"
         ],
-        "motif": "mountain",
+        "motif": "grid",
         "tracks": [
           [
             "Taxman",
-            156
+            159
           ],
           [
             "Eleanor Rigby",
-            131
+            128
+          ],
+          [
+            "I'm Only Sleeping",
+            181
           ],
           [
             "Love You To",
-            180
+            181
           ],
           [
             "Here, There and Everywhere",
-            149
+            145
           ],
           [
             "Yellow Submarine",
-            160
+            158
           ],
           [
             "She Said She Said",
-            159
+            156
           ],
           [
             "Good Day Sunshine",
             128
           ],
           [
+            "And Your Bird Can Sing",
+            121
+          ],
+          [
             "For No One",
-            123
+            119
+          ],
+          [
+            "Doctor Robert",
+            134
           ],
           [
             "I Want to Tell You",
-            150
+            149
           ],
           [
-            "Got to Get You Into My Life",
+            "Got to Get You into My Life",
             151
           ],
           [
             "Tomorrow Never Knows",
-            180
+            177
           ]
         ]
       },
@@ -1773,6 +1321,10 @@ window.DISCOGRAPHY = {
           [
             "The End",
             140
+          ],
+          [
+            "Her Majesty",
+            23
           ]
         ]
       },
@@ -1791,51 +1343,51 @@ window.DISCOGRAPHY = {
         "tracks": [
           [
             "Two of Us",
-            0
-          ],
-          [
-            "I Me Mine",
-            0
-          ],
-          [
-            "One After 909",
-            0
-          ],
-          [
-            "Across the Universe",
-            0
-          ],
-          [
-            "Dig It",
-            0
-          ],
-          [
-            "Let It Be",
-            0
-          ],
-          [
-            "Maggie Mae",
-            0
+            215
           ],
           [
             "Dig a Pony",
-            0
+            234
           ],
           [
-            "The Long & Winding Road",
-            0
+            "Across the Universe",
+            228
           ],
           [
-            "I Got a Feeling",
-            0
+            "I Me Mine",
+            146
+          ],
+          [
+            "Dig It",
+            50
+          ],
+          [
+            "Let It Be",
+            243
+          ],
+          [
+            "Maggie Mae",
+            40
+          ],
+          [
+            "I've Got a Feeling",
+            218
+          ],
+          [
+            "One After 909",
+            175
+          ],
+          [
+            "The Long and Winding Road",
+            218
           ],
           [
             "For You Blue",
-            0
+            152
           ],
           [
             "Get Back",
-            0
+            189
           ]
         ]
       }
