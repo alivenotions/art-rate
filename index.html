@@ -145,6 +145,29 @@ button { font: inherit; color: inherit; background: none; border: none; cursor: 
 .stats-btn:hover { border-color: var(--accent); color: var(--accent); }
 .stats-btn .chev { font-size: 16px; }
 
+.sidebar-mobile-toggle {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 32px);
+  margin: 14px 16px 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.sidebar-mobile-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.sidebar-mobile-toggle .chev {
+  font-size: 14px;
+  transition: transform .15s;
+}
+.sidebar.mobile-open .sidebar-mobile-toggle .chev { transform: rotate(180deg); }
+.sidebar-mobile-body { display: contents; }
+
 .album-view { min-height: 100%; }
 .artist-header { padding: 32px 48px 0; }
 .artist-header-name {
@@ -478,6 +501,298 @@ select.twk-field{padding-right:22px;
   display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;
   transition:transform .15s}
 .twk-fab:hover{transform:scale(1.08)}
+
+@media (max-width: 980px) {
+  body {
+    overflow: auto;
+  }
+
+  .app {
+    width: 100%;
+    min-height: 100dvh;
+    height: auto;
+  }
+
+  .app.app-artist {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .sidebar,
+  .main {
+    grid-column: 1;
+    overflow: visible;
+  }
+
+  .sidebar {
+    grid-row: 1;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .sidebar-mobile-toggle {
+    display: flex;
+  }
+
+  .sidebar-mobile-body {
+    display: block;
+  }
+
+  .sidebar.mobile-collapsed .sidebar-mobile-body {
+    display: none;
+  }
+
+  .main {
+    grid-row: 2;
+  }
+
+  .artist-header,
+  .tracklist,
+  .album-hero,
+  .library-view {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .album-hero {
+    gap: 24px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .album-hero-cover {
+    width: min(220px, 48vw) !important;
+    height: min(220px, 48vw) !important;
+  }
+
+  .album-hero-cover img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .album-stats {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .stat-block.histo {
+    max-width: none;
+    min-width: min(280px, 100%);
+  }
+
+  .tracklist-head,
+  .track-row {
+    grid-template-columns: 40px minmax(0, 1fr) auto;
+  }
+
+  .tracklist-head {
+    grid-template-areas: "idx title dur" "idx rating rating";
+    row-gap: 8px;
+  }
+
+  .track-row {
+    grid-template-areas: "idx title dur" "idx rating rating";
+    row-gap: 8px;
+  }
+
+  .th-idx,
+  .track-idx-cell {
+    grid-area: idx;
+  }
+
+  .th-title,
+  .track-title {
+    grid-area: title;
+  }
+
+  .th-rating,
+  .track-rating {
+    grid-area: rating;
+  }
+
+  .th-dur,
+  .track-dur {
+    grid-area: dur;
+  }
+
+  .track-rating {
+    justify-self: stretch;
+  }
+
+  .rating.bar {
+    width: 100%;
+    max-width: 220px;
+  }
+
+  .library-view {
+    padding-top: 40px;
+  }
+
+  .library-head-inner,
+  .library-stats {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .library-stats {
+    gap: 20px;
+  }
+
+  .lib-stat {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .artist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .artist-card-art > div:first-child {
+    width: min(200px, 48vw) !important;
+    height: min(200px, 48vw) !important;
+  }
+
+  .artist-card-art img {
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .stats-panel {
+    width: min(560px, calc(100vw - 24px));
+  }
+}
+
+@media (max-width: 640px) {
+  .brand {
+    padding: 18px 16px 14px;
+  }
+
+  .back-link,
+  .sidebar-mobile-toggle,
+  .stats-btn,
+  .sidebar-artist,
+  .section-label,
+  .album-list {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .sidebar-artist,
+  .section-label {
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .artist-header,
+  .album-hero,
+  .tracklist,
+  .library-view {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .album-hero {
+    padding-top: 16px;
+    padding-bottom: 28px;
+  }
+
+  .album-title {
+    font-size: clamp(32px, 12vw, 52px);
+  }
+
+  .tracklist-head {
+    display: none;
+  }
+
+  .track-row {
+    grid-template-columns: 32px minmax(0, 1fr);
+    grid-template-areas: "idx title" "rating rating" "dur dur";
+    gap: 6px 12px;
+    padding: 14px 8px;
+  }
+
+  .track-dur {
+    justify-self: start;
+  }
+
+  .rating {
+    gap: 10px;
+  }
+
+  .library-head {
+    margin-bottom: 40px;
+  }
+
+  .brand-line {
+    align-items: flex-start;
+  }
+
+  .brand-mark.big {
+    font-size: 36px;
+  }
+
+  .brand-name.big {
+    font-size: 30px;
+  }
+
+  .library-section-title,
+  .artist-card-name,
+  .stats-head h2 {
+    font-size: 24px;
+  }
+
+  .artist-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .artist-card-body,
+  .stats-head {
+    padding: 18px;
+  }
+
+  .artist-card-stats {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .stats-overlay {
+    padding: 12px;
+    align-items: stretch;
+  }
+
+  .stats-panel {
+    width: 100%;
+    max-height: none;
+  }
+
+  .top-list {
+    padding: 8px 12px 12px;
+  }
+
+  .top-list li {
+    grid-template-columns: 28px 36px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .top-score {
+    grid-column: 2 / span 2;
+    justify-self: end;
+  }
+
+  .twk-panel {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    width: auto;
+    max-height: min(70vh, 560px);
+  }
+
+  .twk-fab {
+    right: 16px;
+    bottom: 16px;
+  }
+}
 </style>
 </head>
 <body>
@@ -825,8 +1140,21 @@ function histogramBucketLabel(index, scale, binCount) {
 // ── Sidebar ─────────────────────────────────────────────────────────────────
 function Sidebar({ artistKey, albumId, setAlbumId, ratings, onShowStats, onShowAlbumStats, onBackToLibrary, scale }) {
   const artist = DISCOGRAPHY[artistKey];
+  const [mobileOpen, setMobileOpen] = useState(() => window.matchMedia('(min-width: 981px)').matches);
+
+  useEffect(() => {
+    const media = window.matchMedia('(min-width: 981px)');
+    const syncSidebar = (event) => {
+      if (event.matches) setMobileOpen(true);
+    };
+
+    syncSidebar(media);
+    media.addEventListener('change', syncSidebar);
+    return () => media.removeEventListener('change', syncSidebar);
+  }, []);
+
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${mobileOpen ? 'mobile-open' : 'mobile-collapsed'}`}>
       <div className="brand">
         <div className="brand-mark">{"◐"}</div>
         <div>
@@ -840,45 +1168,60 @@ function Sidebar({ artistKey, albumId, setAlbumId, ratings, onShowStats, onShowA
         <span>Library</span>
       </button>
 
-      <div className="sidebar-artist">
-        <div className="sidebar-artist-name">{artist.name}</div>
-        <div className="sidebar-artist-meta">{artist.bio}</div>
-      </div>
+      <button
+        className="sidebar-mobile-toggle"
+        onClick={() => setMobileOpen(open => !open)}
+        aria-expanded={mobileOpen}
+        aria-controls="sidebar-mobile-body"
+      >
+        <span>{mobileOpen ? 'Hide discography' : 'Show discography'}</span>
+        <span className="chev">{"⌄"}</span>
+      </button>
 
-      <div className="section-label">Discography · {artist.albums.length}</div>
-      <ul className="album-list">
-        {artist.albums.map(album => {
-          const score = albumScoreOf(album, ratings);
-          return (
-            <li key={album.id}>
-              <button className={`album-row ${album.id === albumId ? "active" : ""}`}
-                onClick={() => setAlbumId(album.id)}>
-                <AlbumCover album={album} size={44} />
-                <div className="album-row-text">
-                  <div className="album-row-title">{album.title}</div>
-                  <div className="album-row-meta">
-                    <span>{album.year}</span>
-                    <span className="dot-sep">{"·"}</span>
-                    <span>{album.tracks.length} tracks</span>
+      <div className="sidebar-mobile-body" id="sidebar-mobile-body">
+        <div className="sidebar-artist">
+          <div className="sidebar-artist-name">{artist.name}</div>
+          <div className="sidebar-artist-meta">{artist.bio}</div>
+        </div>
+
+        <div className="section-label">Discography · {artist.albums.length}</div>
+        <ul className="album-list">
+          {artist.albums.map(album => {
+            const score = albumScoreOf(album, ratings);
+            return (
+              <li key={album.id}>
+                <button className={`album-row ${album.id === albumId ? "active" : ""}`}
+                  onClick={() => {
+                    setAlbumId(album.id);
+                    if (window.innerWidth <= 980) setMobileOpen(false);
+                  }}>
+                  <AlbumCover album={album} size={44} />
+                  <div className="album-row-text">
+                    <div className="album-row-title">{album.title}</div>
+                    <div className="album-row-meta">
+                      <span>{album.year}</span>
+                      <span className="dot-sep">{"·"}</span>
+                      <span>{album.tracks.length} tracks</span>
+                    </div>
                   </div>
-                </div>
-                {score != null && (
-                  <div className="album-row-score">{(score * scale).toFixed(scale > 10 ? 0 : 1)}</div>
-                )}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+                  {score != null && (
+                    <div className="album-row-score">{(score * scale).toFixed(scale > 10 ? 0 : 1)}</div>
+                  )}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
 
-      <button className="stats-btn" onClick={onShowStats}>
-        <span>Your top tracks</span>
-        <span className="chev">{"→"}</span>
-      </button>
-      <button className="stats-btn" onClick={onShowAlbumStats}>
-        <span>Your top albums</span>
-        <span className="chev">{"→"}</span>
-      </button>
+        <button className="stats-btn" onClick={onShowStats}>
+          <span>Your top tracks</span>
+          <span className="chev">{"→"}</span>
+        </button>
+        <button className="stats-btn" onClick={onShowAlbumStats}>
+          <span>Your top albums</span>
+          <span className="chev">{"→"}</span>
+        </button>
+      </div>
     </aside>
   );
 }
