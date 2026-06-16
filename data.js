@@ -1414,11 +1414,11 @@ window.DISCOGRAPHY = {
         "tracks": [
           [
             "Blew",
-            176
+            175
           ],
           [
             "Floyd the Barber",
-            140
+            138
           ],
           [
             "About a Girl",
@@ -1426,19 +1426,19 @@ window.DISCOGRAPHY = {
           ],
           [
             "School",
-            163
+            162
           ],
           [
-            "Big Cheese",
-            222
+            "Love Buzz",
+            215
           ],
           [
             "Paper Cuts",
-            248
+            246
           ],
           [
             "Negative Creep",
-            175
+            176
           ],
           [
             "Scoff",
@@ -2557,40 +2557,48 @@ window.DISCOGRAPHY = {
         "motif": "wave",
         "tracks": [
           [
-            "See Emily Play",
-            175
-          ],
-          [
-            "Pow R. Toc H.",
-            256
-          ],
-          [
-            "Take Up Thy Stethoscope and Walk",
-            186
+            "Astronomy Domine",
+            252
           ],
           [
             "Lucifer Sam",
-            186
+            187
           ],
           [
             "Matilda Mother",
-            179
+            188
           ],
           [
-            "The Scarecrow",
-            127
+            "Flaming",
+            166
           ],
           [
-            "The Gnome",
-            131
+            "Pow R. Toc H.",
+            266
           ],
           [
-            "Chapter 24",
-            231
+            "Take Up Thy Stethoscope and Walk",
+            185
           ],
           [
             "Interstellar Overdrive",
-            582
+            581
+          ],
+          [
+            "The Gnome",
+            133
+          ],
+          [
+            "Chapter 24",
+            222
+          ],
+          [
+            "The Scarecrow",
+            131
+          ],
+          [
+            "Bike",
+            201
           ]
         ]
       },
